@@ -1,0 +1,104 @@
+ = Nancey Beautiful Stranger
+ Thiet ke lai Data, Chức năng, UI
+guardians2
+
+Play for Win
+keytool -list -v -keystore "C:\Users\huyvu\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+
+keytool -exportcert -alias androiddebugkey -keystore "C:\Users\huyvu\.android\debug.keystore" | "C:\open\bin\openssl" sha1 -binary | "C:\open\bin\openssl" base64
+
+ffmpeg  -re -i C:\Users\huyvu\Desktop\red5-server\webapps\oflaDemo\streams\tranformer5.mp4  -vcodec libx264  -vb 1280k -vprofile baseline -level 2.1 -acodec aac -ab 64000 -ar 48000 -ac 2 -strict experimental -f flv rtmp://192.168.1.9:1935/live/test
+
+ffmpeg -re -i guardians2.mp4  -vcodec libx264  -vb 1280k -vprofile baseline -level 2.1 -acodec aac -ab 64000 -ar 48000 -ac 2 -strict experimental -f flv rtmp://192.168.1.114:1935/live/test
+
+http://192.168.1.9:5080/live/streams/test.m3u8
+
+ffmpeg -re -i Demo_Mutil.mp4 -vcodec libx264 -ab 128k -ac 2 -ar 44100 -r 25 -s 320x240 -vb 660k -f  flv rtmp://192.168.1.114/oflaDemo/test
+
+
+ffmpeg -y -i C:\Users\huyvu\Desktop\red5-server\webapps\oflaDemo\streams\guardians2.mp4 -r 25 -g 25 -c:a libfdk_aac -b:a 128k -c:v libx264 -preset veryfast -b:v 1600k -maxrate 1600k -bufsize 800k -s 640x360 -c:a libfdk_aac -vbsf h264_mp4toannexb -flags -global_header -f ssegment -segment_list playlist.m3u8 -segment_list_flags +live-cache -segment_time 5 output-%04d.ts
+
+ffmpeg -re -i guardians2.mp4 -codec copy -map 0 -f segment -segment_list playlist.m3u8 -segment_list_flags +live -segment_time 10 out%03d.ts
+
+ffmpeg -i guardians2.mp4 -map 0 
+-codec:v libx264 -codec:a libfaac 
+-f ssegment -segment_list playlist.m3u8 
+-segment_list_flags +live -segment_time 10 
+out%03d.ts
+
+
+rtsp rtsp://192.168.1.107/oflaDemo/test
+
+ flv rtmp://192.168.1.107/oflaDemo/test
+rtsp rtsp://127.0.0.1:8554/live/streamname
+
+ for(Element eVideo : elements_docPlayVideo){
+                                 if(eVideo.attr("class").trim().equals("jwplayer jw-reset jw-state-paused jw-skin-seven jw-stretch-uniform jw-breakpoint-6 jw-flag-cast-available jw-flag-ads jw-flag-ads-hide-controls jw-flag-user-inactive")){
+                                     Elements eid = eVideo.children();
+                                     System.out.println(eid);
+                                 }
+                             }
+
+
+Võ thuật, Lịch sử, Tiểu sử, Kiếm hiệp, Cỗ trang, Tình cảm, Lãng mạn, Gỉa tưởng, Thần thoại
+
+Úc
+
+true thì diễn vien
+false là dạo diễn
+
+Element sotap = a1.child(8);
+                                                String[] arrtextsotap = sotap.text().substring(8).toString().split("\\/");
+                                                ArrayList arrN = new ArrayList<>();
+                                                for (String item : arrtextsotap) {
+                                                    arrN.add(item);
+                                                   // System.out.println(arrN);
+                                                    //System.out.println(item);
+                                                    // System.out.println(idmovie);
+                                                    //insert.AddMovie_Language(item.toString(), idmovie);
+                                                }
+                                                System.out.println(arrN.get(0));
+                                                System.out.println(arrN.get(1));
+                                                
+                                                // System.out.println(thoiluong.text().substring(12));
+                                                for (int t = 1; t < Integer.parseInt(arrN.get(0).toString()); t++) {
+                                                    insert.AddEpisode(title, t, Integer.parseInt(arrN.get(1).toString()), formatter.format(initDate), thoiluong.text().substring(12).trim().toString(),null, idmovie, idmovie);
+                                                }
+
+358
+
+soitem = 10;
+
+sophantu = (trang-1)*soitem; 
+
+10.45.145.11
+
+điểm khác nhau giữa các ngành
+điểm mạnh và điểm yếu
+
+11-06-2018 thứ 2 ca 1 phòng E41
+
+I'm Vũ
+x= 25;
+
+25 con ngựa => 5 vòng => 5 con nhanh nhất
+5 con nhanh nhất => Con ngựa A nhất , con ngựa B về nhì, con ngựa C về ba
+
+
+
+1 vòng tối đa 5 con
+biết được thứ tự về đích của 5 con // 
+hãy cho biết số vòng đua ít nhất để tìm ra 3 con ngựa chạy nhanh nhất trong 25 con,
+giả sử các con ngựa không bị mất sức sau các vòng đua
+
+ghin nnm  mn  nhh nhb n 
+
+
+Giới thiệu về đồ án:
++Làm về gì cái gì, chụp hình giao diện bỏ vào, demo sản phẩm?
++Giới thiệu về Struct? áp dụng vào Struct vào đồ án
+
+
+
+1 --- 0.862697
+1000 --- 862.697
