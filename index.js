@@ -1,10 +1,6 @@
-import express from 'express';
-import bodyparser from 'body-parser';
-import routes from './Routers/routerMovies';
-import cmd from "node-cmd";
-import moment from 'moment'
-import fs from 'fs';
-import global from './global';
+const express = require('express');
+const bodyparser = require('body-parser');
+const routes = require('./Routers/routerMovies');
 let app = express();
 
 app.use(bodyparser.urlencoded({extended: true}));

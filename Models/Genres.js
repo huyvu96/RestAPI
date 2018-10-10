@@ -1,7 +1,7 @@
-import db from '../ConnectDatabase/Dbconnection';
+var db = require('../ConnectDatabase/Dbconnection');
 
 const Genres={
-    getAllGenres(page,size){
+    getAllGenres: function(page,size){
         var soitem = size;
         var sophantu =(page-1) * soitem;
         var sql = "select * from genres limit "+sophantu+","+soitem;
@@ -21,7 +21,7 @@ const Genres={
         });
     }
     ,
-    getGenresByIdMovies(id){
+    getGenresByIdMovies:function(id){
         var sql = "SELECT genres.id, genres.name_genre \n \
         FROM ((movies_genres \n \
         INNER JOIN movies ON movies.id = movies_genres.id_movie) \n \
@@ -40,7 +40,7 @@ const Genres={
             })
         });
     },
-    getAllMoviebyGenres(id,name,page,size){
+    getAllMoviebyGenres:function(id,name,page,size){
         var soitem =size;
         var sophantu =(page-1) * soitem;
         var sql = "SELECT genres.name_genre, movies.id, movies.title, movies.title_en,\n \
