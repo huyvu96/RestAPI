@@ -1,4 +1,4 @@
-var db = require('../Dbconnection');
+var db = require('../ConnectDatabase/Dbconnection');
 
 var Language={
     getLanguageByIdMovies:async function(id){

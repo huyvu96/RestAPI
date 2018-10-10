@@ -1,4 +1,4 @@
-var db = require('../Dbconnection');
+var db = require('../ConnectDatabase/Dbconnection');
 
 var Movies={
     getInforByIdMovies:async function(id){
@@ -17,11 +17,32 @@ var Movies={
                 } else
                 {
                     //console.log(result);
-                    resolve(result)
+                    resolve(result[0])
                 }
             })
         });
     },
+    searchAllMovies:async function(query, page , size){
+        var soitem = size;
+        var sophantu =(page-1) * soitem;
+        var byTitle = "select id from movies where title like N'%"+ query +"%'";
+        var byNamePeople = "select movies.id FROM ((movies_people INNER JOIN movies ON movies.id = movies_people.id_movie) INNER JOIN people ON people.id = movies_people.id_people) where people.name_people like N'%"+ query +"%'";
+        var byOverView = "select id from movies where overview like N'%"+ query +"%'";
+        var sql = "select * from movies where (id in ("+byTitle+") or id in ("+byNamePeople+") or id in ("+byOverView+")) limit "+sophantu+","+ soitem;
+        return new Promise(function (resolve, reject)
+        {
+            db.query(sql,[query], function (err, result)
+            {
+                if (err)
+                {
+                    reject(err)
+                } else
+                {
+                    resolve(result)
+                }
+            })
+        });
+    }
 	// addSV:function(sinhvien,callback){
 	// 	return db.query("Insert into movies(name,class,dob) values(?,?,?)",[sinhvien.name,sinhvien.class,sinhvien.dob],callback);
 	// },
