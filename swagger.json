@@ -8,43 +8,96 @@
   "schemes": [
     "http"
   ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "tags": [
+    {
+      "name": "Create Token",
+      "description": "Token for ALL api in the system"
+    },
+    {
+      "name": "Movies",
+      "description": "API for Movies in the system"
+    },
+    {
+      "name": "User",
+      "description": "API for User in the system"
+    }
+  ],
   "host": "localhost:3000",
   "basePath": "/movies",
   "paths": {
+    "/createToken": {
+      "get": {
+        "tags": [
+          "Create Token"
+        ],
+        "summary": "createToken",
+        "description": "Returns a token",
+        "responses": {
+          "200": {
+            "description": "Returns a token"
+          }
+        }
+      }
+    },
     "/top": {
       "get": {
-        "security": [{"Bearer": []}],
+        "tags": [
+          "Movies"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "summary": "Gets top movies",
         "description": "Returns a list containing all persons.",
         "parameters": [
           {
-            "name": "user",
-            "in": "body",
-            "description": "User that we want to create",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
+            "name": "category",
+            "in": "path",
+            "description": "Name of category we want to get",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "A list of Person",
-            "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "firstName": {
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "type": "string"
-                  },
-                  "username": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
+            "description": "A list of movies"
+          }
+        }
+      }
+    },
+    "/detail": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "Gets detail movies",
+        "description": "Returns a detail movies",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of movies which you want to see",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A information of movies"
           }
         }
       }

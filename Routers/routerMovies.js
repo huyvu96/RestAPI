@@ -14,7 +14,6 @@ var user = "HuyVu";
 var token = jwt.sign(user, 'vu');
 
 router.get('/detail?', global.verifyToken, async function (req, res, next) {
-    console.log(req, res)
     jwt.verify(req.token, 'tvsea', async (err, authData) => {
         if (err) {
             res.sendStatus(403);
@@ -367,7 +366,7 @@ router.get('/start-stream?', async function (req, res, next) {
         });
     }
 });
-router.post('/insertHistoryOrLike?',global.verifyToken, async function (req, res, next) {
+router.post('/insertHistoryOrLike?', global.verifyToken, async function (req, res, next) {
     const {idMovie, Key, idUser} = req.body;
     let data = {
         idMovie,
@@ -396,7 +395,7 @@ router.post('/insertHistoryOrLike?',global.verifyToken, async function (req, res
     });
 
 });
-router.put('/unLike?',global.verifyToken, async function (req, res, next) {
+router.put('/unLike?', global.verifyToken, async function (req, res, next) {
     const {id} = req.body;
     jwt.verify(req.token, 'tvsea', async (err, authData) => {
         if (err) {
@@ -418,6 +417,25 @@ router.put('/unLike?',global.verifyToken, async function (req, res, next) {
             }
         }
     });
+});
+router.get('/createToken?', async function (req, res, next) {
+    const user = {
+        id: 1,
+        email: "huyvu0505@gmail.com",
+        pass: "1234567"
+    };
+    let token = await global.createToken(user);
+    try {
+        return res.status(200).json({
+            success: true,
+            token
+        });
+    } catch (e) {
+        return res.status(404).json({
+            success: false,
+            message: e.sqlMessage,
+        });
+    }
 });// var tokenHeader = req.headers.authorization;
 // jwt.verify(tokenHeader, 'vu', async function (err, decode) {
 //     if (err) {
