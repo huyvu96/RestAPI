@@ -22,14 +22,14 @@ router.post('/register?', async function (req, res, next) {
     try {
         User.signUp(name, email, pass).then((e) => {
             if (e.success) {
-                return res.status(200).json({
+                return res.status(200).send({
                     success: e.success,
                     data,
                     result: e.data,
                     message: e.message,
                 });
             } else {
-                return res.status(200).json({
+                return res.status(200).send({
                     success: e.success,
                     data,
                     result: e.data,
@@ -54,7 +54,7 @@ router.post('/login?', async function (req, res, next) {
     try {
         User.signIn(email, pass).then((e) => {
             if (e.success) {
-                return res.status(200).json({
+                return res.status(200).send({
                     success: e.success,
                     data,
                     result: e.data,
@@ -62,7 +62,7 @@ router.post('/login?', async function (req, res, next) {
                     message: e.message,
                 });
             } else {
-                return res.status(200).json({
+                return res.status(200).send({
                     success: e.success,
                     data,
                     result: e.data,
@@ -72,32 +72,39 @@ router.post('/login?', async function (req, res, next) {
             }
         });
     } catch (e) {
-        return res.status(404).json({
+        return res.status(404).send({
             success: false,
             message: e.sqlMessage,
         });
     }
 });
-router.put('/updateInfo?', async function (req, res, next) {
+router.put('/updateInfo?',global.verifyToken, async function (req, res, next) {
     const {name, url, phone, sex, email, password, type, id} = req.body;
     let data = {
         name, url, phone, sex, email, password, type, id
     };
     let pass = await global.verifySHA256(password);
-    try {
-        User.updateInfo(name, url, phone, sex, email, pass, type, id).then((e) => {
-            return res.status(200).json({
-                success: e.success,
-                data,
-                result: e.data,
-                message: e.message,
-            });
-        });
-    } catch (e) {
-        return res.status(404).json({
-            success: false,
-            message: e.sqlMessage,
-        });
-    }
+    jwt.verify(req.token, 'tvsea', async (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            try {
+                User.updateInfo(name, url, phone, sex, email, pass, type, id).then((e) => {
+                    return res.status(200).json({
+                        success: e.success,
+                        data,
+                        result: e.data,
+                        message: e.message,
+                    });
+                });
+            } catch (e) {
+                return res.status(404).json({
+                    success: false,
+                    message: e.sqlMessage,
+                });
+            }
+        }
+    });
+
 });
 module.exports = router;

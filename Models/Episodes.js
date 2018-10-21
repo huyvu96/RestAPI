@@ -13,7 +13,6 @@ var Episodes={
                     reject(err)
                 } else
                 {
-                    //console.log(result);
                     resolve(result)
                 }
             })

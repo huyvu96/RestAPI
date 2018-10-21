@@ -36,7 +36,7 @@ var User = {
                     if (result.length < 0) {
                         return resolve({success: false, data: [], message: "USER_SIGN_IN_ERROR"})
                     } else {
-                        return resolve({success: true, data: result, message: "USER_SIGN_IN_SUCCESSFUL"});
+                        return resolve({success: true, data: result[0], message: "USER_SIGN_IN_SUCCESSFUL"});
                     }
                 }
             })
