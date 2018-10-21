@@ -8,7 +8,7 @@ let app = express();
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/movies', routesMovie);
 app.use('/user',routesUser);
