@@ -153,8 +153,7 @@ router.get('/people?', global.verifyToken, async function (req, res, next) {
 });
 router.get('/genres?', global.verifyToken, async function (req, res, next) {
     let data = [];
-    let page = req.query.page;
-    let size = req.query.size;
+    let {page, size , id} = req.query;
     if (!page || !size) {
         page = 1;
         size = 10;
@@ -164,7 +163,7 @@ router.get('/genres?', global.verifyToken, async function (req, res, next) {
             res.sendStatus(403);
         } else {
             try {
-                data = await Genres.getAllMoviebyGenres(req.query.id, req.query.name, page, size);
+                data = await Genres.getAllMoviebyGenres(id, page, size);
                 return res.status(200).json({
                     success: true,
                     data,
