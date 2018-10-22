@@ -8,13 +8,14 @@ let app = express();
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
+
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/movies', routesMovie);
 app.use('/user',routesUser);
 app.use('/images/movies', express.static('images'));
 
-let server = app.listen(process.env.PORT || 3000, function () {
+let server = app.listen(process.env.PORT || 8080, function () {
     console.log('Server listening on port ' + server.address().port);
 });
 module.exports = app;
