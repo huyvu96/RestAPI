@@ -40,7 +40,7 @@ var Movies = {
         var sophantu = (page - 1) * soitem;
         var byGenres = "select movies.id from ((movies_genres inner join movies on movies.id = movies_genres.id_movie) inner join genres on genres.id = movies_genres.id_genre) where genres.id= " + idGenre1 + " or genres.id = " + idGenre2;
         var byPeoples = "select movies.id from ((movies_people inner join movies on movies.id = movies_people.id_movie) inner join people on people.id = movies_people.id_people) where people.id = " + idPeople1 + " or people.id = " + idPeople2;
-        var sql = "select * from movies where (id in (" + byPeoples + ") or id in (" + byGenres + ")) and id != " + idMovie + " +   limit " + sophantu + "," + soitem;
+        var sql = "select * from movies where (id in (" + byPeoples + ") or id in (" + byGenres + ")) and id != " + idMovie + " limit " + sophantu + "," + soitem;
         return new Promise(function (resolve, reject) {
             db.query(sql.split("undefined").join("null"), [idMovie, idGenre1, idGenre2, idPeople1, idPeople2], function (err, result) {
                 if (err) {

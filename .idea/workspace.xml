@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="637671b8-4395-4f74-be53-8f5623786638" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Models/Movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routers/routerMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routers/routerMovies.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,7 +48,7 @@
         <counts>
           <entry key="Procfile" value="17" />
           <entry key="babelrc" value="4" />
-          <entry key="js" value="7710" />
+          <entry key="js" value="7711" />
           <entry key="json" value="452" />
         </counts>
       </usages-collector>
@@ -57,7 +56,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="456" />
-          <entry key="JavaScript" value="7710" />
+          <entry key="JavaScript" value="7711" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -83,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="263" column="18" lean-forward="true" selection-start-line="263" selection-start-column="18" selection-end-line="263" selection-end-column="18" />
+            <state relative-caret-position="227">
+              <caret line="267" column="46" lean-forward="true" selection-start-line="267" selection-start-column="36" selection-end-line="267" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -110,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/Movies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="37" column="20" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="20" />
+            <state relative-caret-position="238">
+              <caret line="42" column="128" selection-start-line="42" selection-start-column="128" selection-end-line="42" selection-end-column="128" />
             </state>
           </provider>
         </entry>
@@ -129,6 +128,7 @@
       <find>crypto</find>
       <find>top</find>
       <find>relea</find>
+      <find>getRelatedMovies</find>
     </findStrings>
     <replaceStrings>
       <replace>id</replace>
@@ -159,8 +159,8 @@
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/ConnectDatabase/Dbconnection.js" />
         <option value="$PROJECT_DIR$/Models/Category.js" />
-        <option value="$PROJECT_DIR$/Models/Movies.js" />
         <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
+        <option value="$PROJECT_DIR$/Models/Movies.js" />
       </list>
     </option>
   </component>
@@ -282,12 +282,12 @@
       <workItem from="1539226147327" duration="217000" />
       <workItem from="1539782458638" duration="5711000" />
       <workItem from="1539827541813" duration="21910000" />
-      <workItem from="1540138398985" duration="12034000" />
+      <workItem from="1540138398985" duration="12291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78385000" />
+    <option name="totallyTimeSpent" value="78642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="810" extended-state="6" />
@@ -446,17 +446,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Movies.js">
+    <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="37" column="20" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="20" />
+        <state relative-caret-position="227">
+          <caret line="267" column="46" lean-forward="true" selection-start-line="267" selection-start-column="36" selection-end-line="267" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
+    <entry file="file://$PROJECT_DIR$/Models/Movies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="263" column="18" lean-forward="true" selection-start-line="263" selection-start-column="18" selection-end-line="263" selection-end-column="18" />
+        <state relative-caret-position="238">
+          <caret line="42" column="128" selection-start-line="42" selection-start-column="128" selection-end-line="42" selection-end-column="128" />
         </state>
       </provider>
     </entry>
