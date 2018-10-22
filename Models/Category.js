@@ -5,7 +5,7 @@ var Category = {
         var soitem = size;
         var sophantu = (page - 1) * soitem;
         var sql = "SELECT movies.id, movies.title, movies.title_en, movies.overview, movies.poster_path, \n \
-        movies.backdrop_path \n \
+        movies.backdrop_path, movies.rating \n \
         FROM movies \n \
         INNER JOIN category \n \
         on movies.id_category = category.id  where  category.name_category= ? limit " + sophantu + "," + soitem;
@@ -22,7 +22,7 @@ var Category = {
     getTopMoviesbyCategory: function (category, page, size) {
         var soitem = size;
         var sophantu = (page - 1) * soitem;
-        var sql = "SELECT movies.id, movies.title, movies.title_en, movies.overview, movies.poster_path, movies.backdrop_path \n\
+        var sql = "SELECT movies.id, movies.title, movies.title_en, movies.overview, movies.poster_path, movies.backdrop_path, movies.rating \n\
         FROM movies \n\
         INNER JOIN category \n\
         on movies.id_category = category.id  where  category.name_category=? order by rand() limit " + sophantu + "," + soitem;

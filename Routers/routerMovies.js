@@ -29,15 +29,20 @@ router.get('/detail?', global.verifyToken, async function (req, res, next) {
                 return res.status(200).json({
                     id_movie: id,
                     success: true,
-                    info,
-                    actor,
-                    director,
-                    language,
-                    genres,
-                    episodes
+                    data: {
+                        info,
+                        actor,
+                        director,
+                        language,
+                        genres,
+                        episodes
+                    },
                 });
             } catch (e) {
                 return res.status(404).json({
+                    id_movie: id,
+                    success: false,
+                    data: {},
                     message: e.sqlMessage,
                 });
             }
