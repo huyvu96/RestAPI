@@ -153,7 +153,7 @@ router.get('/people?', global.verifyToken, async function (req, res, next) {
 });
 router.get('/genres?', global.verifyToken, async function (req, res, next) {
     let data = [];
-    let {page, size , id} = req.query;
+    let {page, size, id} = req.query;
     if (!page || !size) {
         page = 1;
         size = 10;
@@ -286,7 +286,7 @@ router.get('/related', global.verifyToken, async function (req, res, next) {
 });
 router.get('/history', global.verifyToken, async function (req, res, next) {
     let data = [];
-    let {page, size, key} = req.query;
+    let {page, size, key, id} = req.query;
     key = 1;
     if (!page || !size) {
         page = 1;
@@ -297,7 +297,7 @@ router.get('/history', global.verifyToken, async function (req, res, next) {
             res.sendStatus(403);
         } else {
             try {
-                data = await Movies.getHistoryOrLikeMovies(key, page, size);
+                data = await Movies.getHistoryOrLikeMovies(id, key, page, size);
                 return res.status(200).json({
                     success: true,
                     data,
@@ -319,7 +319,7 @@ router.get('/history', global.verifyToken, async function (req, res, next) {
 });
 router.get('/like', global.verifyToken, async function (req, res, next) {
     let data = [];
-    let {page, size, key} = req.query;
+    let {page, size, key, id} = req.query;
     key = 2;
     if (!page || !size) {
         page = 1;
@@ -330,7 +330,7 @@ router.get('/like', global.verifyToken, async function (req, res, next) {
             res.sendStatus(403);
         } else {
             try {
-                data = await Movies.getHistoryOrLikeMovies(key, page, size);
+                data = await Movies.getHistoryOrLikeMovies(id, key, page, size);
                 return res.status(200).json({
                     success: true,
                     data,

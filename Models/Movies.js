@@ -51,15 +51,15 @@ var Movies = {
             })
         });
     },
-    getHistoryOrLikeMovies: async function (key, page, size) {
+    getHistoryOrLikeMovies: async function (id, key, page, size) {
         var soitem = size;
         var sophantu = (page - 1) * soitem;
         var sql = "SELECT movies.id, movies.title, movies.title_en, movies.overview, movies.poster_path, movies.backdrop_path, movies.rating" +
             " FROM ((history_favorite INNER JOIN movies ON movies.id = history_favorite.id_movie) " +
             "INNER JOIN user ON user.id = history_favorite.id_user) " +
-            "where history_favorite.key_check= " + key + " limit " + sophantu + "," + soitem;
+            "where history_favorite.id_user ="+ id +" history_favorite.key_check= " + key + " limit " + sophantu + "," + soitem;
         return new Promise(function (resolve, reject) {
-            db.query(sql.split("undefined").join("null"), [key], function (err, result) {
+            db.query(sql.split("undefined").join("null"), [id,key], function (err, result) {
                 if (err) {
                     return reject(err)
                 } else {
