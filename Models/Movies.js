@@ -98,10 +98,11 @@ var Movies = {
             })
         });
     },
-    deleteHistoryOrLike: async function (id) {
-        var deleteData = "delete from history_favorite where history_favorite.id_movie = ? and key_check = 2";
+    deleteHistoryOrLike: async function (idUser, idMovie, Key) {
+        //Key = 1 History, Key = 2 Like;
+        var deleteData = "delete from history_favorite where id_user = ? and id_movie = ? and key_check = ?";
         return new Promise(function (resolve, reject) {
-            db.query(deleteData.split("undefined").join("null"), [id], function (err, result) {
+            db.query(deleteData.split("undefined").join("null"), [idUser, idMovie, Key], function (err, result) {
                 if (err) {
                     return reject({success: false, data: [], message: err})
                 } else {

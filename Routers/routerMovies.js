@@ -386,7 +386,7 @@ router.post('/insertHistoryOrLike?', global.verifyToken, async function (req, re
                     return res.status(200).json({
                         success: true,
                         data,
-                        message: "GET_DATA_SUCCESSFUL",
+                        message: "INSERT_DATA_SUCCESSFUL",
                     });
                 });
             } catch (e) {
@@ -397,16 +397,16 @@ router.post('/insertHistoryOrLike?', global.verifyToken, async function (req, re
             }
         }
     });
-
 });
-router.put('/unLike?', global.verifyToken, async function (req, res, next) {
-    const {id} = req.body;
+router.put('/removeMovie?', global.verifyToken, async function (req, res, next) {
+    //Key = 1 History, Key = 2 Like;
+    const {idUser, idMovie, Key} = req.body;
     jwt.verify(req.token, 'tvsea', async (err, authData) => {
         if (err) {
             res.sendStatus(403);
         } else {
             try {
-                Movies.deleteHistoryOrLike(id).then((e) => {
+                Movies.deleteHistoryOrLike(idUser, idMovie, Key).then((e) => {
                     return res.status(200).json({
                         success: e.success,
                         data: e.data,
