@@ -57,7 +57,7 @@ var Movies = {
         var sql = "SELECT movies.id, movies.title, movies.title_en, movies.overview, movies.poster_path, movies.backdrop_path, movies.rating" +
             " FROM ((history_favorite INNER JOIN movies ON movies.id = history_favorite.id_movie) " +
             "INNER JOIN user ON user.id = history_favorite.id_user) " +
-            "where history_favorite.id_user ="+ id +" and history_favorite.key_check= " + key + " ORDER BY history_favorite.date_save DESC limit " + sophantu + "," + soitem;
+            "where history_favorite.id_user ="+ id +" and history_favorite.key_check= " + key + " ORDER BY history_favorite.id DESC limit " + sophantu + "," + soitem;
         return new Promise(function (resolve, reject) {
             db.query(sql.split("undefined").join("null"), [id,key], function (err, result) {
                 if (err) {
