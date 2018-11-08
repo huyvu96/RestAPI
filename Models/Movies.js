@@ -54,7 +54,7 @@ var Movies = {
     getHistoryOrLikeMovies: async function (id, key, page, size) {
         var soitem = size;
         var sophantu = (page - 1) * soitem;
-        var sql = "SELECT movies.id, movies.title, movies.title_en, movies.overview, movies.poster_path, movies.backdrop_path, movies.rating" +
+        var sql = "SELECT movies.id, movies.title, movies.title_en, movies.overview, movies.poster_path, movies.backdrop_path, movies.rating,history_favorite.date_save" +
             " FROM ((history_favorite INNER JOIN movies ON movies.id = history_favorite.id_movie) " +
             "INNER JOIN user ON user.id = history_favorite.id_user) " +
             "where history_favorite.id_user =" + id + " and history_favorite.key_check= " + key + " ORDER BY history_favorite.id DESC limit " + sophantu + "," + soitem;
