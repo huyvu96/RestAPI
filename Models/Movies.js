@@ -114,7 +114,7 @@ var Movies = {
     getCommentMovies: async function (id, page, size) {
         var soitem = size;
         var sophantu = (page - 1) * soitem;
-        var sql = "select comment.id, movies.id as id_movie, user.id as id_user, user.display_name, user.url_avatar, comment.comment, comment.date  " +
+        var sql = "select comment.id, movies.id as id_movie, user.id as id_user, user.display_name, user.url_avatar, comment.comment, comment.date, comment.rate " +
             "FROM ((comment INNER JOIN movies ON movies.id = comment.id_movie) " +
             "INNER JOIN user ON user.id = comment.id_user)" +
             " where movies.id = ? ORDER BY comment.date DESC limit " + sophantu + "," + soitem;
