@@ -70,5 +70,12 @@ const global = {
     createToken: function (data) {
         return jwt.sign(data, 'tvsea');
     },
+    convertItemArray: function (array) {
+        let newArr = [];
+        array.map((item, index) =>{
+            newArr.push(item.id);
+        });
+        return newArr.join(",");
+    }
 };
 module.exports = global;

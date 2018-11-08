@@ -14,25 +14,19 @@ var user = "HuyVu";
 var token = jwt.sign(user, 'vu');
 
 router.get('/detail?', global.verifyToken, async function (req, res, next) {
+    const {id} = req.query;
     jwt.verify(req.token, 'tvsea', async (err, authData) => {
         if (err) {
             res.sendStatus(403);
         } else {
             try {
-                const {id} = req.query;
                 let genres = await Genres.getGenresByIdMovies(id);
                 let actor = await People.getActorByIdMovies(id);
                 let director = await People.getDirectorByIdMovies(id);
                 let language = await Language.getLanguageByIdMovies(id);
                 let episodes = await Episodes.getAllEpisodesbyIdMovie(id);
                 let info = await Movies.getInforByIdMovies(id);
-                let Genres = await genres.map((e, i) => {
-                    return e.id
-                }).join(",");
-                let Peoples = await actor.map((e, i) => {
-                    return e.id
-                }).join(",");
-                let related = await Movies.getRelatedMovies(id, Genres, Peoples, 1, 5);
+                let related = await Movies.getRelatedMovies(id, global.convertItemArray(genres), global.convertItemArray(actor), 1, 5);
                 let comment = await Movies.getCommentMovies(id, 1, 5);
                 return res.status(200).json({
                     id_movie: id,
