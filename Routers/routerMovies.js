@@ -422,6 +422,91 @@ router.put('/removeMovie?', global.verifyToken, async function (req, res, next) 
         }
     });
 });
+router.get('/comment', global.verifyToken, async function (req, res, next) {
+    let data = [];
+    let {page, size, id} = req.query;
+    if (!page || !size) {
+        page = 1;
+        size = 5;
+    }
+    jwt.verify(req.token, 'tvsea', async (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            try {
+                data = await Movies.getCommentMovies(id, page, size);
+                return res.status(200).json({
+                    success: true,
+                    data,
+                    message: "GET_DATA_SUCCESSFUL",
+                    page: parseInt(page),
+                    size: parseInt(size),
+                });
+            } catch (e) {
+                return res.status(404).json({
+                    success: false,
+                    data: [],
+                    message: e.sqlMessage,
+                    page: parseInt(page),
+                    size: parseInt(size),
+                });
+            }
+        }
+    });
+
+});
+router.post('/insertComment?', global.verifyToken, async function (req, res, next) {
+    const {comment, idMovie, idUser} = req.body;
+    let data = {
+        comment,
+        idMovie,
+        idUser
+    };
+    jwt.verify(req.token, 'tvsea', async (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            try {
+                Movies.insertCommentMovies(comment,idMovie, idUser).then((e) => {
+                    return res.status(200).json({
+                        success: true,
+                        data,
+                        message: "INSERT_DATA_SUCCESSFUL",
+                    });
+                });
+            } catch (e) {
+                return res.status(404).json({
+                    success: false,
+                    message: e.sqlMessage,
+                });
+            }
+        }
+    });
+});
+router.put('/removeComment?', global.verifyToken, async function (req, res, next) {
+    //Key = 1 History, Key = 2 Like;
+    const {idUser, idMovie} = req.body;
+    jwt.verify(req.token, 'tvsea', async (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            try {
+                Movies.deleteComment(idUser, idMovie).then((e) => {
+                    return res.status(200).json({
+                        success: e.success,
+                        data: e.data,
+                        message: e.message,
+                    });
+                });
+            } catch (e) {
+                return res.status(404).json({
+                    success: false,
+                    message: e.sqlMessage,
+                });
+            }
+        }
+    });
+});
 router.get('/createToken?', async function (req, res, next) {
     const user = {
         id: 1,

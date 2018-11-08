@@ -57,9 +57,9 @@ var Movies = {
         var sql = "SELECT movies.id, movies.title, movies.title_en, movies.overview, movies.poster_path, movies.backdrop_path, movies.rating" +
             " FROM ((history_favorite INNER JOIN movies ON movies.id = history_favorite.id_movie) " +
             "INNER JOIN user ON user.id = history_favorite.id_user) " +
-            "where history_favorite.id_user ="+ id +" and history_favorite.key_check= " + key + " ORDER BY history_favorite.id DESC limit " + sophantu + "," + soitem;
+            "where history_favorite.id_user =" + id + " and history_favorite.key_check= " + key + " ORDER BY history_favorite.id DESC limit " + sophantu + "," + soitem;
         return new Promise(function (resolve, reject) {
-            db.query(sql.split("undefined").join("null"), [id,key], function (err, result) {
+            db.query(sql.split("undefined").join("null"), [id, key], function (err, result) {
                 if (err) {
                     return reject(err)
                 } else {
@@ -69,8 +69,8 @@ var Movies = {
         });
     },
     insertHistoryOrLikeMovies: async function (idMovie, idUser, Key) {
-        var insertData = "insert into history_favorite values (null,DATE(CURRENT_TIMESTAMP),?,?,?)";
-        var updateData = "update history_favorite set history_favorite.date_save = DATE(CURRENT_TIMESTAMP) where history_favorite.id = ?";
+        var insertData = "insert into history_favorite values (null,CURRENT_TIMESTAMP,?,?,?)";
+        var updateData = "update history_favorite set history_favorite.date_save = CURRENT_TIMESTAMP where history_favorite.id = ?";
         var checkExist = "select * from history_favorite where id_movie = ? and id_user =? and key_check= ?";
         return new Promise(function (resolve, reject) {
             db.query(checkExist.split("undefined").join("null"), [idMovie, idUser, Key], function (err, result) {
@@ -106,12 +106,71 @@ var Movies = {
                 if (err) {
                     return reject({success: false, data: [], message: err})
                 } else {
-                    return resolve({success: true, data: result, message: "UNLIKE_SUCCESSFUL"})
+                    return resolve({success: true, data: result, message: "DELETE_SUCCESSFUL"})
                 }
             })
         });
     },
-
+    getCommentMovies: async function (id, page, size) {
+        var soitem = size;
+        var sophantu = (page - 1) * soitem;
+        var sql = "select comment.id, movies.id as id_movie, user.id as id_user, user.display_name, user.url_avatar, comment.comment, comment.date  " +
+            "FROM ((comment INNER JOIN movies ON movies.id = comment.id_movie) " +
+            "INNER JOIN user ON user.id = comment.id_user)" +
+            " where movies.id = ? ORDER BY comment.date DESC limit " + sophantu + "," + soitem;
+        return new Promise(function (resolve, reject) {
+            db.query(sql.split("undefined").join("null"), [id], function (err, result) {
+                if (err) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        });
+    },
+    insertCommentMovies: async function (comment, idMovie, idUser) {
+        var insertData = "insert into comment values (null,?,CURRENT_TIMESTAMP,?,?)";
+        var updateData = "update comment set comment.comment = ? where comment.id = ?";
+        var checkExist = "select * from comment where id_movie = ? and id_user =?";
+        return new Promise(function (resolve, reject) {
+            db.query(checkExist.split("undefined").join("null"), [idMovie, idUser], function (err, result) {
+                if (err) {
+                    return reject(err)
+                } else {
+                    if (result.length > 0) {
+                        db.query(updateData.split("undefined").join("null"), [comment ,result[0].id], function (err, result) {
+                            if (err) {
+                                return reject(err)
+                            } else {
+                                return resolve(result)
+                            }
+                        });
+                    } else {
+                        db.query(insertData.split("undefined").join("null"), [comment, idMovie, idUser], function (err, result) {
+                            if (err) {
+                                return reject(err)
+                            } else {
+                                return resolve(result)
+                            }
+                        });
+                    }
+                }
+            })
+        });
+    },
+    deleteComment: async function (idUser, idMovie) {
+        //Key = 1 History, Key = 2 Like;
+        var deleteData = "delete from comment where  id_user = ? and id_movie = ?";
+        return new Promise(function (resolve, reject) {
+            db.query(deleteData.split("undefined").join("null"), [idUser, idMovie], function (err, result) {
+                if (err) {
+                    return reject({success: false, data: [], message: err})
+                } else {
+                    return resolve({success: true, data: result, message: "DELETE_SUCCESSFUL"})
+                }
+            })
+        });
+    },
     // addSV:function(sinhvien,callback){
     // 	return db.query("Insert into movies(name,class,dob) values(?,?,?)",[sinhvien.name,sinhvien.class,sinhvien.dob],callback);
     // },

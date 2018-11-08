@@ -13,5 +13,6 @@ var connection = mysql.createPool({
     database:'tvstreaming',
     port:'3306'
 });
+
 module.exports = connection;
 
