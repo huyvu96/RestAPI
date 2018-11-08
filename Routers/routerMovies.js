@@ -26,6 +26,14 @@ router.get('/detail?', global.verifyToken, async function (req, res, next) {
                 let language = await Language.getLanguageByIdMovies(id);
                 let episodes = await Episodes.getAllEpisodesbyIdMovie(id);
                 let info = await Movies.getInforByIdMovies(id);
+                let Genres = await genres.map((e, i) => {
+                    return e.id
+                }).join(",");
+                let Peoples = await actor.map((e, i) => {
+                    return e.id
+                }).join(",");
+                let related = await Movies.getRelatedMovies(id, Genres, Peoples, 1, 5);
+                let comment = await Movies.getCommentMovies(id, 1, 5);
                 return res.status(200).json({
                     id_movie: id,
                     success: true,
@@ -35,7 +43,9 @@ router.get('/detail?', global.verifyToken, async function (req, res, next) {
                         director,
                         language,
                         genres,
-                        episodes
+                        episodes,
+                        related,
+                        comment
                     },
                 });
             } catch (e) {
@@ -467,7 +477,7 @@ router.post('/insertComment?', global.verifyToken, async function (req, res, nex
             res.sendStatus(403);
         } else {
             try {
-                Movies.insertCommentMovies(comment,idMovie, idUser).then((e) => {
+                Movies.insertCommentMovies(comment, idMovie, idUser).then((e) => {
                     return res.status(200).json({
                         success: true,
                         data,
