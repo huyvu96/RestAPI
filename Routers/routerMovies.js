@@ -460,9 +460,10 @@ router.get('/comment', global.verifyToken, async function (req, res, next) {
 
 });
 router.post('/insertComment?', global.verifyToken, async function (req, res, next) {
-    const {comment, idMovie, idUser} = req.body;
+    const {comment, idMovie, idUser, rate} = req.body;
     let data = {
         comment,
+        rate,
         idMovie,
         idUser
     };
@@ -471,7 +472,7 @@ router.post('/insertComment?', global.verifyToken, async function (req, res, nex
             res.sendStatus(403);
         } else {
             try {
-                Movies.insertCommentMovies(comment, idMovie, idUser).then((e) => {
+                Movies.insertCommentMovies(comment, rate, idMovie, idUser).then((e) => {
                     return res.status(200).json({
                         success: true,
                         data,

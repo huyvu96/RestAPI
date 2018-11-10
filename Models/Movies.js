@@ -128,9 +128,9 @@ var Movies = {
             })
         });
     },
-    insertCommentMovies: async function (comment, idMovie, idUser) {
-        var insertData = "insert into comment values (null,?,CURRENT_TIMESTAMP,?,?)";
-        var updateData = "update comment set comment.comment = ? where comment.id = ?";
+    insertCommentMovies: async function (comment, rate, idMovie, idUser) {
+        var insertData = "insert into comment values (null,?,?,CURRENT_TIMESTAMP,?,?)";
+        var updateData = "update comment set comment.comment = ? and comment.rate = ? where comment.id = ?";
         var checkExist = "select * from comment where id_movie = ? and id_user =?";
         return new Promise(function (resolve, reject) {
             db.query(checkExist.split("undefined").join("null"), [idMovie, idUser], function (err, result) {
@@ -138,7 +138,7 @@ var Movies = {
                     return reject(err)
                 } else {
                     if (result.length > 0) {
-                        db.query(updateData.split("undefined").join("null"), [comment ,result[0].id], function (err, result) {
+                        db.query(updateData.split("undefined").join("null"), [comment, rate, result[0].id], function (err, result) {
                             if (err) {
                                 return reject(err)
                             } else {
@@ -146,7 +146,7 @@ var Movies = {
                             }
                         });
                     } else {
-                        db.query(insertData.split("undefined").join("null"), [comment, idMovie, idUser], function (err, result) {
+                        db.query(insertData.split("undefined").join("null"), [comment, rate, idMovie, idUser], function (err, result) {
                             if (err) {
                                 return reject(err)
                             } else {
