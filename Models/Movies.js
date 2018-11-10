@@ -130,7 +130,7 @@ var Movies = {
     },
     insertCommentMovies: async function (comment, rate, idMovie, idUser) {
         var insertData = "insert into comment values (null,?,?,CURRENT_TIMESTAMP,?,?)";
-        var updateData = "update comment set comment.comment = ? and comment.rate = ? where comment.id = ?";
+        var updateData = "update comment set comment.comment = ?, comment.rate = ? where comment.id = ?";
         var checkExist = "select * from comment where id_movie = ? and id_user =?";
         return new Promise(function (resolve, reject) {
             db.query(checkExist.split("undefined").join("null"), [idMovie, idUser], function (err, result) {
