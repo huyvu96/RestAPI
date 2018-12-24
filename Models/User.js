@@ -2,7 +2,7 @@ var db = require('../ConnectDatabase/Dbconnection');
 
 var User = {
     signUp: async function (name, email, password) {
-        var insertData = "insert into user values(null,?,null,null,null,?,?,1)";
+        var insertData = "insert into user values(null,?,'https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/user.png?alt=media&token=1fc9e115-f812-4c4c-8ddb-c92041499ef0',null,null,?,?,1)";
         var checkExist = "select * from user where email = ?";
         return new Promise(function (resolve, reject) {
             db.query(checkExist.split("undefined").join("null"), [email], function (err, result) {
