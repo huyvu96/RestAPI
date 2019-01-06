@@ -509,7 +509,7 @@
         }
       }
     },
-    "/movies/unLike?": {
+    "/movies/removeMovie?": {
       "put": {
         "tags": [
           "Movies"
@@ -519,13 +519,27 @@
             "Bearer": []
           }
         ],
-        "summary": "update unlike",
-        "description": "update unlike",
+        "summary": "update unlike or removeMovie",
+        "description": "update unlike or removeMovie",
         "parameters": [
           {
-            "name": "id",
+            "name": "idMovie",
             "in": "path",
             "description": "id movie we want to unlike",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "idUser",
+            "in": "path",
+            "description": "id user we want to unlike",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "Key",
+            "in": "path",
+            "description": "Key = 1 History, Key = 2 Like",
             "required": true,
             "type": "integer"
           }
@@ -533,6 +547,132 @@
         "responses": {
           "200": {
             "description": "unlike"
+          }
+        }
+      }
+    },
+    "/movies/comment?": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "get  comment",
+        "description": "Get Comment of a movie",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id movie we want to get",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "description": "page of the list",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "size",
+            "in": "path",
+            "description": "size of the list",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get comment"
+          }
+        }
+      }
+    },
+    "/movies/insertComment?": {
+      "post": {
+        "tags": [
+          "Movies"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "insertComment",
+        "description": "Insert a Comment of user",
+        "parameters": [
+          {
+            "name": "idMovie",
+            "in": "path",
+            "description": "id movie we want to comment",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "idUser",
+            "in": "path",
+            "description": "id user",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "comment",
+            "in": "path",
+            "description": "Comment of user",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "rate",
+            "in": "path",
+            "description": "Rating of user",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "insertComment"
+          }
+        }
+      }
+    },
+    "/movies/removeComment?": {
+      "put": {
+        "tags": [
+          "Movies"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "removeComment",
+        "description": "Remove a Comment of user",
+        "parameters": [
+          {
+            "name": "idMovie",
+            "in": "path",
+            "description": "id movie we want to remove",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "idUser",
+            "in": "path",
+            "description": "id user",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "removeComment"
           }
         }
       }
