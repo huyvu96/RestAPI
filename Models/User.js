@@ -32,7 +32,7 @@ var User = {
         var checkHistory = "SELECT movies.id" +
             " FROM ((history_favorite INNER JOIN movies ON movies.id = history_favorite.id_movie) " +
             "INNER JOIN user ON user.id = history_favorite.id_user) " +
-            "where history_favorite.id_user = ? and history_favorite.key_check= 1 ORDER BY history_favorite.date_save DESC limit 1, 1";
+            "where history_favorite.id_user = ? and history_favorite.key_check= 1 ORDER BY history_favorite.date_save DESC limit 1";
         return new Promise(function (resolve, reject) {
             db.query(checkExist.split("undefined").join("null"), [email, password], function (err, result) {
                 if (err) {
