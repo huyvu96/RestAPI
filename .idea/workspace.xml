@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="637671b8-4395-4f74-be53-8f5623786638" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Models/Channel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Channel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Genres.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Genres.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +34,7 @@
           <entry key="Procfile" value="3" />
           <entry key="babelrc" value="2" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="53" />
+          <entry key="js" value="54" />
           <entry key="json" value="11" />
           <entry key="scripts" value="3" />
         </counts>
@@ -41,7 +42,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="53" />
+          <entry key="JavaScript" value="54" />
           <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
@@ -50,7 +51,7 @@
         <counts>
           <entry key="Procfile" value="17" />
           <entry key="babelrc" value="4" />
-          <entry key="js" value="9102" />
+          <entry key="js" value="9115" />
           <entry key="json" value="679" />
         </counts>
       </usages-collector>
@@ -58,7 +59,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="683" />
-          <entry key="JavaScript" value="9102" />
+          <entry key="JavaScript" value="9115" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -78,8 +79,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="551" column="25" lean-forward="true" selection-start-line="551" selection-start-column="25" selection-end-line="551" selection-end-column="25" />
+            <state relative-caret-position="233">
+              <caret line="170" column="46" selection-start-line="170" selection-start-column="46" selection-end-line="170" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Models/Genres.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -111,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/Channel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="246" selection-start-line="16" selection-start-column="246" selection-end-line="16" selection-end-column="246" />
+            <state relative-caret-position="476">
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -138,11 +148,14 @@
       <find>start</find>
       <find>related</find>
       <find>category</find>
+      <find>https://movie-streaming.herokuapp.com/images/movies/</find>
+      <find>Genres</find>
     </findStrings>
     <replaceStrings>
       <replace>id</replace>
       <replace>const</replace>
       <replace>=</replace>
+      <replace>http://18.222.223.197:8080/images/movies/</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -157,7 +170,6 @@
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/global/convertTime.js" />
-        <option value="$PROJECT_DIR$/Models/Genres.js" />
         <option value="$PROJECT_DIR$/Models/Episodes.js" />
         <option value="$PROJECT_DIR$/Routers/routerUser.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -171,6 +183,7 @@
         <option value="$PROJECT_DIR$/Models/Category.js" />
         <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
         <option value="$PROJECT_DIR$/Models/Channel.js" />
+        <option value="$PROJECT_DIR$/Models/Genres.js" />
       </list>
     </option>
   </component>
@@ -312,12 +325,12 @@
       <workItem from="1546790343962" duration="41000" />
       <workItem from="1546790401115" duration="1534000" />
       <workItem from="1547571633390" duration="319000" />
-      <workItem from="1547879743620" duration="8272000" />
+      <workItem from="1547879743620" duration="11051000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117406000" />
+    <option name="totallyTimeSpent" value="120185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
@@ -444,13 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Genres.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/swagger.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11645">
@@ -507,17 +513,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
+    <entry file="file://$PROJECT_DIR$/Models/Channel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="551" column="25" lean-forward="true" selection-start-line="551" selection-start-column="25" selection-end-line="551" selection-end-column="25" />
+        <state relative-caret-position="476">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Channel.js">
+    <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="246" selection-start-line="16" selection-start-column="246" selection-end-line="16" selection-end-column="246" />
+        <state relative-caret-position="233">
+          <caret line="170" column="46" selection-start-line="170" selection-start-column="46" selection-end-line="170" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Genres.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
         </state>
       </provider>
     </entry>

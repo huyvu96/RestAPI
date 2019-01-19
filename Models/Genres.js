@@ -44,7 +44,7 @@ const Genres={
         var soitem =size;
         var sophantu =(page-1) * soitem;
         var sql = "SELECT genres.name_genre, movies.id, movies.title, movies.title_en,\n \
-         movies.overview, movies.poster_path, movies.backdrop_path, movies.id_category \n \
+         movies.overview, movies.poster_path, movies.backdrop_path, movies.rating, movies.id_category \n \
         FROM ((movies_genres \n \
         INNER JOIN movies ON movies.id = movies_genres.id_movie) \n \
         INNER JOIN genres ON genres.id = movies_genres.id_genre) \n \
