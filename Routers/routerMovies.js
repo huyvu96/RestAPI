@@ -258,7 +258,7 @@ router.get('/genres/total?', global.verifyToken, async function (req, res, next)
 });
 router.get('/related', global.verifyToken, async function (req, res, next) {
     let data = [];
-    let {page, size, Genres, Peoples, idMovie} = req.query;
+    let {page, size, Genres, Peoples, idMovie,idUser} = req.query;
     if (!page || !size) {
         page = 1;
         size = 5;
@@ -268,6 +268,8 @@ router.get('/related', global.verifyToken, async function (req, res, next) {
             res.sendStatus(403);
         } else {
             try {
+                let genres = await Genres.getGenresByIdMovies(idMovie);
+                let actor = await People.getActorByIdMovies(idMovie);
                 data = await Movies.getRelatedMovies(idMovie, Genres, Peoples, page, size);
                 return res.status(200).json({
                     success: true,

@@ -29,6 +29,10 @@ var User = {
     },
     signIn: async function (email, password) {
         var checkExist = "select * from user where email = ? and password = ?";
+        var checkHistory = "SELECT movies.id" +
+            " FROM ((history_favorite INNER JOIN movies ON movies.id = history_favorite.id_movie) " +
+            "INNER JOIN user ON user.id = history_favorite.id_user) " +
+            "where history_favorite.id_user = ? and history_favorite.key_check= 1 ORDER BY history_favorite.date_save DESC limit 1, 1";
         return new Promise(function (resolve, reject) {
             db.query(checkExist.split("undefined").join("null"), [email, password], function (err, result) {
                 if (err) {
@@ -37,7 +41,15 @@ var User = {
                     if (result.length <= 0) {
                         return resolve({success: false, data: [], message: "USER_SIGN_IN_ERROR"})
                     } else {
-                        return resolve({success: true, data: result[0], message: "USER_SIGN_IN_SUCCESSFUL"});
+                        let data = result[0];
+                        db.query(checkHistory.split("undefined").join("null"), [result[0].id], function (err, history) {
+                           if(err) {
+                               return reject(err)
+                           } else {
+                               data = {...data, id_movie_history: history[0].id};
+                               return resolve({success: true, data: data, message: "USER_SIGN_IN_SUCCESSFUL"});
+                           }
+                        });
                     }
                 }
             })
