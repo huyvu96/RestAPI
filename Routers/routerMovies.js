@@ -1,6 +1,7 @@
 const express = require('express');
 const Movies = require('../Models/Movies');
 const Category = require('../Models/Category');
+const Channel = require('../Models/Channel');
 const People = require('../Models/People');
 const Genres = require('../Models/Genres');
 const Language = require('../Models/Language');
@@ -460,7 +461,6 @@ router.get('/comment', global.verifyToken, async function (req, res, next) {
             }
         }
     });
-
 });
 router.post('/insertComment?', global.verifyToken, async function (req, res, next) {
     const {comment, idMovie, idUser, rate} = req.body;
@@ -533,7 +533,54 @@ router.get('/createToken?', async function (req, res, next) {
             message: e.sqlMessage,
         });
     }
-});// var tokenHeader = req.headers.authorization;
+});
+router.get('/channel', global.verifyToken, async function (req, res, next) {
+    let data = [];
+    jwt.verify(req.token, 'tvsea', async (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            try {
+                data = await Channel.getAllChannel();
+                return res.status(200).json({
+                    success: true,
+                    data,
+                    message: "GET_DATA_SUCCESSFUL",
+                });
+            } catch (e) {
+                return res.status(404).json({
+                    success: false,
+                    data: [],
+                    message: e.sqlMessage,
+                });
+            }
+        }
+    });
+});
+router.get('/calender', global.verifyToken, async function (req, res, next) {
+    let data = [];
+    jwt.verify(req.token, 'tvsea', async (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            try {
+                data = await Channel.getCalenderByChannel();
+                return res.status(200).json({
+                    success: true,
+                    data,
+                    message: "GET_DATA_SUCCESSFUL",
+                });
+            } catch (e) {
+                return res.status(404).json({
+                    success: false,
+                    data: [],
+                    message: e.sqlMessage,
+                });
+            }
+        }
+    });
+});
+// var tokenHeader = req.headers.authorization;
 // jwt.verify(tokenHeader, 'vu', async function (err, decode) {
 //     if (err) {
 //         res.send({
