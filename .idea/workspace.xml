@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="637671b8-4395-4f74-be53-8f5623786638" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/images/trailer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Channel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routers/routerMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routers/routerMovies.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +35,7 @@
           <entry key="Procfile" value="3" />
           <entry key="babelrc" value="2" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="52" />
+          <entry key="js" value="53" />
           <entry key="json" value="11" />
           <entry key="scripts" value="3" />
         </counts>
@@ -41,7 +43,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="52" />
+          <entry key="JavaScript" value="53" />
           <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
@@ -50,7 +52,7 @@
         <counts>
           <entry key="Procfile" value="17" />
           <entry key="babelrc" value="4" />
-          <entry key="js" value="9003" />
+          <entry key="js" value="9101" />
           <entry key="json" value="679" />
         </counts>
       </usages-collector>
@@ -58,7 +60,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="683" />
-          <entry key="JavaScript" value="9003" />
+          <entry key="JavaScript" value="9101" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -78,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="60" column="17" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="17" />
+            <state relative-caret-position="307">
+              <caret line="559" column="21" selection-start-line="559" selection-start-column="13" selection-end-line="559" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -114,8 +116,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/Movies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+            <state relative-caret-position="1088">
+              <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Channel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -123,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/Category.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+            <state relative-caret-position="306">
+              <caret line="18" column="14" lean-forward="true" selection-end-line="39" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -178,6 +189,7 @@
         <option value="$PROJECT_DIR$/ConnectDatabase/Dbconnection.js" />
         <option value="$PROJECT_DIR$/Models/User.js" />
         <option value="$PROJECT_DIR$/Models/Category.js" />
+        <option value="$PROJECT_DIR$/Models/Channel.js" />
         <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
       </list>
     </option>
@@ -231,11 +243,6 @@
             <path>
               <item name="RestAPI" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestAPI" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RestAPI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RestAPI" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -260,14 +267,14 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Routers" />
-      <recent name="$PROJECT_DIR$/images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Routers" />
       <recent name="$PROJECT_DIR$/ConnectDatabase" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/Routers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -325,17 +332,18 @@
       <workItem from="1546790343962" duration="41000" />
       <workItem from="1546790401115" duration="1534000" />
       <workItem from="1547571633390" duration="319000" />
-      <workItem from="1547879743620" duration="6101000" />
+      <workItem from="1547879743620" duration="7976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115235000" />
+    <option name="totallyTimeSpent" value="117110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1726568" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1726568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -349,7 +357,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.4005682" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.4005682" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -505,24 +513,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Category.js">
+    <entry file="file://$PROJECT_DIR$/Models/Movies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+        <state relative-caret-position="1088">
+          <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Movies.js">
+    <entry file="file://$PROJECT_DIR$/Models/Category.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+        <state relative-caret-position="306">
+          <caret line="18" column="14" lean-forward="true" selection-end-line="39" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Channel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="60" column="17" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="17" />
+        <state relative-caret-position="307">
+          <caret line="559" column="21" selection-start-line="559" selection-start-column="13" selection-end-line="559" selection-end-column="21" />
         </state>
       </provider>
     </entry>
