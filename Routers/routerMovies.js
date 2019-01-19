@@ -59,7 +59,7 @@ router.get('/category?', global.verifyToken, async function (req, res, next) {
     if (!page || !size) {
         page = 1;
         size = 10;
-        category = 'Phim le'
+        category = 1
     }
     jwt.verify(req.token, 'tvsea', async (err, authData) => {
         if (err) {

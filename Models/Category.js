@@ -8,7 +8,7 @@ var Category = {
         movies.backdrop_path, movies.rating \n \
         FROM movies \n \
         INNER JOIN category \n \
-        on movies.id_category = category.id  where  category.name_category= ? limit " + sophantu + "," + soitem;
+        on movies.id_category = category.id  where  category.id= ? limit " + sophantu + "," + soitem;
         return new Promise(function (resolve, reject) {
             db.query(sql, [category], function (err, result) {
                 if (err) {
