@@ -27,7 +27,7 @@ router.get('/detail?', global.verifyToken, async function (req, res, next) {
                 let language = await Language.getLanguageByIdMovies(id);
                 let episodes = await Episodes.getAllEpisodesbyIdMovie(id);
                 let info = await Movies.getInforByIdMovies(id);
-                let related = await Movies.getRelatedMovies(id, global.convertItemArray(genres), global.convertItemArray(actor), 1, 5);
+                let related = await Movies.getRelatedMovies(id, global.convertItemArray(genres), global.convertItemArray(actor), 1, 10);
                 let comment = await Movies.getCommentMovies(id, 1, 5);
                 return res.status(200).json({
                     id_movie: id,
