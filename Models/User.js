@@ -46,8 +46,14 @@ var User = {
                            if(err) {
                                return reject(err)
                            } else {
-                               data = {...data, id_movie_history: history[0].id};
-                               return resolve({success: true, data: data, message: "USER_SIGN_IN_SUCCESSFUL"});
+                               if(history.length > 0){
+                                   data = {...data, id_movie_history: history[0].id};
+                                   return resolve({success: true, data: data, message: "USER_SIGN_IN_SUCCESSFUL"});
+                               }else{
+                                   data = {...data, id_movie_history: null};
+                                   return resolve({success: true, data: data, message: "USER_SIGN_IN_SUCCESSFUL"});
+                               }
+
                            }
                         });
                     }
