@@ -360,14 +360,15 @@ router.get('/like', global.verifyToken, async function (req, res, next) {
 
 });
 router.get('/start-stream?', async function (req, res, next) {
-    let {host} = req.query;
+    let {host,path} = req.query;
     try {
-        let path = "https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/guardians2.mp4?alt=media&token=eb9467c6-6f16-475c-b541-14342103dce7";
+        //let path = "https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/guardians2.mp4?alt=media&token=eb9467c6-6f16-475c-b541-14342103dce7";
         let duration = await global.getDuration(path);
-        global.startStreamming(path, host);
+        global.startStreamming(path);
         return res.status(200).json({
             success: true,
-            host: host,
+            host,
+            path,
             duration,
             message: "STREAMING_SUCCESSFUL",
         });

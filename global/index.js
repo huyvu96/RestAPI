@@ -35,9 +35,9 @@ const global = {
             });
         });
     },
-    startStreamming: function (path, host) {
+    startStreamming: function (path) {
         return new Promise(function (resolve, reject) {
-            cmd.get(`ffmpeg -re -i "` + path + `" -c:v libx264 -framerate 15 -preset medium -s 1280x720 -vb 1280k -pix_fmt yuv420p -g 50 -b:a 160k -vprofile baseline -level 2.1 -acodec aac -ab 64000 -ar 48000 -ac 2 -strict experimental -f flv rtmp://` + host + `:1935/live/streaming`, (err, results) => {
+            cmd.get(`ffmpeg -re -i "` + path + `" -acodec libmp3lame -ac 1 -ar 44100 -s 640x360 -vcodec libx264 -pix_fmt yuv420p -g 60 -vb 425k -profile:v baseline -preset:v faster -r 30 -f flv "rtmp://127.0.0.1:1935/live/streaming live=1 timeout=2"`, (err, results) => {
                 if (err) {
                     reject(err)
                 } else {
