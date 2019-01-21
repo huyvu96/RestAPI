@@ -26,8 +26,8 @@ var Movies = {
         var byGenres = "select movies.id from ((movies_genres inner join movies on movies.id = movies_genres.id_movie) inner join genres on genres.id = movies_genres.id_genre) where MATCH(genres.name_genre) AGAINST('"+query+"' IN NATURAL LANGUAGE MODE)";
         //var byNamePeople = "select movies.id FROM ((movies_people INNER JOIN movies ON movies.id = movies_people.id_movie) INNER JOIN people ON people.id = movies_people.id_people) where REPLACE(people.name_people,' ','') like N'%" + query + "%'";
         var byNamePeople = " select movies.id FROM ((movies_people INNER JOIN movies ON movies.id = movies_people.id_movie) INNER JOIN people ON people.id = movies_people.id_people) where MATCH(people.name_people) AGAINST('"+query+"' IN NATURAL LANGUAGE MODE)";
-        //var byOverView = "select id from movies where REPLACE(overview,' ','') like N'%" + query + "%'";
-        var byOverView = "select movies.id from movies where match(overview) against('" + query + "' IN NATURAL LANGUAGE MODE)";
+        var byOverView = "select id from movies where overview like N'%" + query + "%'";
+        //var byOverView = "select movies.id from movies where match(overview) against('" + query + "' IN NATURAL LANGUAGE MODE)";
 
         var sql = "select * from movies where (id in (" + byTitle + ") or id in (" + byTitle_en + ") or id in (" + byNamePeople + ") or id in (" + byOverView + ") or id in (" + byGenres + ")) limit " + sophantu + "," + soitem;
         return new Promise(function (resolve, reject) {
