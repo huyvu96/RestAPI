@@ -28,7 +28,7 @@ var Movies = {
         var byNamePeople = " select movies.id FROM ((movies_people INNER JOIN movies ON movies.id = movies_people.id_movie) INNER JOIN people ON people.id = movies_people.id_people) where MATCH(people.name_people) AGAINST(" + query + " IN NATURAL LANGUAGE MODE)";
         //var byOverView = "select id from movies where REPLACE(overview,' ','') like N'%" + query + "%'";
         var byOverView = "select movies.id, movies.title from movies where match(overview) against(" + query + " IN NATURAL LANGUAGE MODE)";
-        var sql = "select * from movies where (id in (" + byTitle + ") or (id in (" + byTitle_EN + ") or id in (" + byNamePeople + ") or id in (" + byOverView + ") or id in (" + byGenres + ")) limit " + sophantu + "," + soitem;
+        var sql = "select * from movies where (id in (" + byTitle + ") or id in (" + byTitle_EN + ") or id in (" + byNamePeople + ") or id in (" + byOverView + ") or id in (" + byGenres + ")) limit " + sophantu + "," + soitem;
         return new Promise(function (resolve, reject) {
             db.query(sql, [query], function (err, result) {
                 if (err) {
