@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="637671b8-4395-4f74-be53-8f5623786638" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Movies.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,7 +50,7 @@
         <counts>
           <entry key="Procfile" value="17" />
           <entry key="babelrc" value="4" />
-          <entry key="js" value="9159" />
+          <entry key="js" value="9178" />
           <entry key="json" value="679" />
         </counts>
       </usages-collector>
@@ -58,7 +58,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="683" />
-          <entry key="JavaScript" value="9159" />
+          <entry key="JavaScript" value="9178" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -93,7 +93,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/User.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="403">
@@ -120,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/Movies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="129" selection-start-line="42" selection-start-column="129" selection-end-line="42" selection-end-column="129" />
+            <state relative-caret-position="390">
+              <caret line="30" column="96" selection-start-line="30" selection-start-column="96" selection-end-line="30" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -200,8 +200,8 @@
         <option value="$PROJECT_DIR$/Models/Genres.js" />
         <option value="$PROJECT_DIR$/global/index.js" />
         <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
-        <option value="$PROJECT_DIR$/Models/Movies.js" />
         <option value="$PROJECT_DIR$/Models/User.js" />
+        <option value="$PROJECT_DIR$/Models/Movies.js" />
       </list>
     </option>
   </component>
@@ -343,12 +343,12 @@
       <workItem from="1546790343962" duration="41000" />
       <workItem from="1546790401115" duration="1534000" />
       <workItem from="1547571633390" duration="319000" />
-      <workItem from="1547879743620" duration="14020000" />
+      <workItem from="1547879743620" duration="17146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123154000" />
+    <option name="totallyTimeSpent" value="126280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
@@ -538,17 +538,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Movies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="129" selection-start-line="42" selection-start-column="129" selection-end-line="42" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/User.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Movies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="30" column="96" selection-start-line="30" selection-start-column="96" selection-end-line="30" selection-end-column="96" />
         </state>
       </provider>
     </entry>
