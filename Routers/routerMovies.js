@@ -376,6 +376,7 @@ router.get('/watchlist', global.verifyToken, async function (req, res, next) {
                 return res.status(200).json({
                     success: true,
                     data,
+                    key,
                     message: "GET_DATA_SUCCESSFUL",
                     page: parseInt(page),
                     size: parseInt(size),
