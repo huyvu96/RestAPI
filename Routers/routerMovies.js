@@ -399,6 +399,10 @@ router.get('/start-stream?', async function (req, res, next) {
     let {movies,path} = req.query;
     try {
         var db = firebase.database();
+        let array = ['010000','011500','012500','013500'];
+        array.forEach((e,index) =>{
+            Channel.insertTime(e, index + 1);
+        });
         var ref = db.ref("Streaming");
         ref.child("Channel").set({
             turn: 1
@@ -409,10 +413,7 @@ router.get('/start-stream?', async function (req, res, next) {
 
             }
         });
-        let array = ['010000','011500','012500','013500'];
-        array.forEach((e,index) =>{
-           Channel.insertTime(e, index + 1);
-        });
+
         //let path = "https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/guardians2.mp4?alt=media&token=eb9467c6-6f16-475c-b541-14342103dce7";
         //let duration = await global.getDuration(path);
         //global.startStreamming(path);
@@ -422,6 +423,29 @@ router.get('/start-stream?', async function (req, res, next) {
             host,
             path,
             //duration,
+            message: "STREAMING_SUCCESSFUL",
+        });
+    } catch (e) {
+        return res.status(404).json({
+            success: false,
+            message: e,
+        });
+    }
+});
+router.get('/remove-stream?', async function (req, res, next) {
+    let {id} = req.query;
+    if(!id){
+        id = 1;
+    }
+    try {
+        var db = firebase.database();
+        var ref = db.ref("Streaming");
+        ref.child("Channel").remove();
+        let data = await Channel.deleteTime(id);
+        return res.status(200).json({
+            success: true,
+            id,
+            data,
             message: "STREAMING_SUCCESSFUL",
         });
     } catch (e) {
