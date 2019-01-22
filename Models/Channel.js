@@ -25,5 +25,29 @@ var Channel = {
             })
         });
     },
+    insertTime: async function (time,idMovie) {
+        var insertData = "insert into time_of_date values (null, ? ,1, ?)";
+        return new Promise(function (resolve, reject) {
+            db.query(insertData.split("undefined").join("null"), [time, idMovie], function (err, result) {
+                if (err) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        });
+    },
+    deleteTime: async function (id) {
+        var deleteData = "delete from time_of_date where id_canlendar = ?";
+        return new Promise(function (resolve, reject) {
+            db.query(deleteData.split("undefined").join("null"), [id], function (err, result) {
+                if (err) {
+                    return reject({success: false, data: [], message: err})
+                } else {
+                    return resolve({success: true, data: result, message: "DELETE_SUCCESSFUL"})
+                }
+            })
+        });
+    },
 };
 module.exports = Channel;

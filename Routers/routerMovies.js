@@ -11,6 +11,7 @@ const cmd = require('node-cmd');
 const global = require('../global');
 const router = express.Router();
 const crypto = require('crypto');
+const firebase = require('../ConnectDatabase/Firebase');
 var user = "HuyVu";
 var token = jwt.sign(user, 'vu');
 
@@ -395,16 +396,32 @@ router.get('/watchlist', global.verifyToken, async function (req, res, next) {
 
 });
 router.get('/start-stream?', async function (req, res, next) {
-    let {host,path} = req.query;
+    let {movies,path} = req.query;
     try {
+        var db = firebase.database();
+        var ref = db.ref("Streaming");
+        ref.child("Channel").set({
+            turn: 1
+        }, function (e) {
+            if(e){
+
+            }else {
+
+            }
+        });
+        let array = ['010000','011500','012500','013500'];
+        array.forEach((e,index) =>{
+           Channel.insertTime(e, index + 1);
+        });
         //let path = "https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/guardians2.mp4?alt=media&token=eb9467c6-6f16-475c-b541-14342103dce7";
-        let duration = await global.getDuration(path);
-        global.startStreamming(path);
+        //let duration = await global.getDuration(path);
+        //global.startStreamming(path);
+
         return res.status(200).json({
             success: true,
             host,
             path,
-            duration,
+            //duration,
             message: "STREAMING_SUCCESSFUL",
         });
     } catch (e) {
