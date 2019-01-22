@@ -359,6 +359,40 @@ router.get('/like', global.verifyToken, async function (req, res, next) {
     });
 
 });
+router.get('/watchlist', global.verifyToken, async function (req, res, next) {
+    let data = [];
+    let {page, size, key, id} = req.query;
+    key = 3;
+    if (!page || !size) {
+        page = 1;
+        size = 5;
+    }
+    jwt.verify(req.token, 'tvsea', async (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            try {
+                data = await Movies.getHistoryOrLikeMovies(id, key, page, size);
+                return res.status(200).json({
+                    success: true,
+                    data,
+                    message: "GET_DATA_SUCCESSFUL",
+                    page: parseInt(page),
+                    size: parseInt(size),
+                });
+            } catch (e) {
+                return res.status(404).json({
+                    success: false,
+                    data: [],
+                    message: e.sqlMessage,
+                    page: parseInt(page),
+                    size: parseInt(size),
+                });
+            }
+        }
+    });
+
+});
 router.get('/start-stream?', async function (req, res, next) {
     let {host,path} = req.query;
     try {
@@ -408,7 +442,7 @@ router.post('/insertHistoryOrLike?', global.verifyToken, async function (req, re
     });
 });
 router.put('/removeMovie?', global.verifyToken, async function (req, res, next) {
-    //Key = 1 History, Key = 2 Like;
+    //Key = 1 History, Key = 2 Like, Key = 3 WatchList;
     const {idUser, idMovie, Key} = req.body;
     jwt.verify(req.token, 'tvsea', async (err, authData) => {
         if (err) {
