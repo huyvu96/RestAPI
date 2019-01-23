@@ -6,7 +6,7 @@ const global = {
     convertTimeToSecond: function (time) {
         let {h, m, s} = 0;
         time.trim().split(':').map((item, index) => {
-            let ParseItem = parseFloat(item);
+            let ParseItem = parseInt(item);
             switch (index) {
                 case 0:
                     h = ParseItem * 3600;
@@ -22,6 +22,16 @@ const global = {
             }
         });
         return h + m + s;
+    },
+    toHHMMSS: function(secs){
+        var sec_num = parseInt(secs, 10);
+        var hours   = Math.floor(sec_num / 3600) % 24
+        var minutes = Math.floor(sec_num / 60) % 60
+        var seconds = sec_num % 60
+        return [hours,minutes,seconds]
+            .map(v => v < 10 ? "0" + v : v)
+            //.filter((v,i) => v !== "00" || i > 0)
+            .join(":")
     },
     getDuration: function (path) {
         let pathConvert = `ffmpeg -i "` + path + `" 2>&1 | grep Duration | cut -d ' ' -f 4 | sed s/,//`;
@@ -76,6 +86,21 @@ const global = {
             newArr.push(item.id);
         });
         return newArr.join(",");
-    }
+    },
+    getDateTime: function() {
+
+    var date = new Date();
+
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    return hour + ":" + min + ":" + sec;
+}
 };
 module.exports = global;

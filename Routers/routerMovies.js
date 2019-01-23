@@ -396,37 +396,51 @@ router.get('/watchlist', global.verifyToken, async function (req, res, next) {
 
 });
 router.get('/start-stream?', async function (req, res, next) {
-    let {movies,path} = req.query;
+    //let {movies} = req.query;
+    let path = "https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/guardians2.mp4?alt=media&token=eb9467c6-6f16-475c-b541-14342103dce7";
+    let path2 ="https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/sample.mp4?alt=media&token=48fb2aa6-61d8-4848-8eaa-c60813b04df2";
+    let arr = [{
+        id: 1,
+        url: path
+    },{
+        id: 2,
+        url: path2
+    }];
     try {
+        for (const item of arr){
+            let duration = await global.getDuration(item.url);
+            Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
+        }
+        global.startStreamming(arr[0].url);
         var db = firebase.database();
-        let array = ['010000','011500','012500','013500'];
-        array.forEach((e,index) =>{
-            Channel.insertTime(e, index + 1);
-        });
         var ref = db.ref("Streaming");
         ref.child("Channel").set({
             turn: 1
-        }, function (e) {
-            if(e){
-
-            }else {
-
-            }
         });
-
-        //let path = "https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/guardians2.mp4?alt=media&token=eb9467c6-6f16-475c-b541-14342103dce7";
-        //let duration = await global.getDuration(path);
-        //global.startStreamming(path);
-
         return res.status(200).json({
             success: true,
-            host,
-            path,
-            //duration,
+            time: global.getDateTime(),
             message: "STREAMING_SUCCESSFUL",
         });
     } catch (e) {
-        return res.status(404).json({
+        return res.status(200).json({
+            success: false,
+            message: e,
+            time: global.getDateTime()
+        });
+    }
+});
+router.get('/start-stop-red5?', async function (req, res, next) {
+    let {key} = req.query;
+    try {
+        let pathConvert = parseInt(key) === 1 ? `cd .. && cd red5pro && ./red5.sh` : `cd .. && cd red5pro && ./red5-shutdown.sh`;
+        await cmd.get(pathConvert);
+        return res.status(200).json({
+            success: true,
+            message: "STREAMING_SUCCESSFUL",
+        });
+    } catch (e) {
+        return res.status(200).json({
             success: false,
             message: e,
         });
