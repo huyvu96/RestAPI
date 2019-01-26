@@ -395,14 +395,21 @@ router.get('/watchlist', global.verifyToken, async function (req, res, next) {
     });
 
 });
-router.post('/start-stream?', async function (req, res, next) {
+router.get('/start-stream?', async function (req, res, next) {
     let {movies} = req.body;
     let path = "https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/guardians2.mp4?alt=media&token=eb9467c6-6f16-475c-b541-14342103dce7";
     let path2 ="https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/sample.mp4?alt=media&token=48fb2aa6-61d8-4848-8eaa-c60813b04df2";
     try {
         for (const item of movies){
             let duration = await global.getDuration(item.url_link);
-            Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
+            let time_of_date = await Channel.checkExist();
+            if(time_of_date.length > 0) {
+                Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) +
+                    duration +
+                    global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time)), item.id);
+            }else {
+                Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
+            }
         }
         global.startStreamming(movies[0].url_link);
         var db = firebase.database();
