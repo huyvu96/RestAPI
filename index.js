@@ -25,7 +25,7 @@ let server = app.listen(process.env.PORT || 8080, function () {
 });
 const jobBackground = new cron.CronJob('0 */1 * * * *', async function () { // 1 phút 1 lần
     let movies = await Channel.checkExist();
-    console.log('Sau 1 phut la chay ne m', movies);
+    console.log('Sau 1 phut la chay ne m', movies, movies.length);
     if(movies.length > 1){//Ton tai
         let currentTime = await global.convertTimeToSecond(global.getDateTime());
         let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);

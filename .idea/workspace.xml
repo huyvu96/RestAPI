@@ -50,7 +50,7 @@
         <counts>
           <entry key="Procfile" value="17" />
           <entry key="babelrc" value="4" />
-          <entry key="js" value="11678" />
+          <entry key="js" value="11694" />
           <entry key="json" value="682" />
         </counts>
       </usages-collector>
@@ -58,7 +58,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="686" />
-          <entry key="JavaScript" value="11678" />
+          <entry key="JavaScript" value="11694" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -69,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+            <state relative-caret-position="117">
+              <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -309,12 +309,12 @@
       <workItem from="1547879743620" duration="19368000" />
       <workItem from="1548164504328" duration="5073000" />
       <workItem from="1548251737248" duration="9273000" />
-      <workItem from="1548497013106" duration="10360000" />
+      <workItem from="1548497013106" duration="10569000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153208000" />
+    <option name="totallyTimeSpent" value="153417000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
@@ -520,8 +520,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        <state relative-caret-position="117">
+          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
         </state>
       </provider>
     </entry>
