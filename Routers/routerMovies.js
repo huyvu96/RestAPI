@@ -395,23 +395,16 @@ router.get('/watchlist', global.verifyToken, async function (req, res, next) {
     });
 
 });
-router.get('/start-stream?', async function (req, res, next) {
-    //let {movies} = req.query;
+router.post('/start-stream?', async function (req, res, next) {
+    let {movies} = req.body;
     let path = "https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/guardians2.mp4?alt=media&token=eb9467c6-6f16-475c-b541-14342103dce7";
     let path2 ="https://firebasestorage.googleapis.com/v0/b/livestreaming-46229.appspot.com/o/sample.mp4?alt=media&token=48fb2aa6-61d8-4848-8eaa-c60813b04df2";
-    let arr = [{
-        id: 1,
-        url: path
-    },{
-        id: 2,
-        url: path2
-    }];
     try {
-        for (const item of arr){
-            let duration = await global.getDuration(item.url);
+        for (const item of movies){
+            let duration = await global.getDuration(item.url_link);
             Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
         }
-        global.startStreamming(arr[0].url);
+        global.startStreamming(movies[0].url_link);
         var db = firebase.database();
         var ref = db.ref("Streaming");
         ref.child("Channel").set({
@@ -419,14 +412,12 @@ router.get('/start-stream?', async function (req, res, next) {
         });
         return res.status(200).json({
             success: true,
-            time: global.getDateTime(),
             message: "STREAMING_SUCCESSFUL",
         });
     } catch (e) {
         return res.status(200).json({
             success: false,
             message: e,
-            time: global.getDateTime()
         });
     }
 });
