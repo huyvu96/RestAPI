@@ -37,8 +37,32 @@ var Channel = {
             })
         });
     },
+    checkExist: async function () {
+        var checkExist = "select * from time_of_date where id_canlendar = 1";
+        return new Promise(function (resolve, reject) {
+            db.query(checkExist.split("undefined").join("null"), function (err, result) {
+                if (err) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        });
+    },
     deleteTime: async function (id) {
         var deleteData = "delete from time_of_date where id_canlendar = ?";
+        return new Promise(function (resolve, reject) {
+            db.query(deleteData.split("undefined").join("null"), [id], function (err, result) {
+                if (err) {
+                    return reject({success: false, data: [], message: err})
+                } else {
+                    return resolve({success: true, data: result, message: "DELETE_SUCCESSFUL"})
+                }
+            })
+        });
+    },
+    deleteMovie: async function (id) {
+        var deleteData = "delete from time_of_date where id_movie = ?";
         return new Promise(function (resolve, reject) {
             db.query(deleteData.split("undefined").join("null"), [id], function (err, result) {
                 if (err) {
