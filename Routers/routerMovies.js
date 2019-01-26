@@ -449,6 +449,7 @@ router.post('/remove-stream?', async function (req, res, next) {
         var db = firebase.database();
         var ref = db.ref("Streaming");
         ref.child("Channel").remove();
+        cmd.get(`killall ffmpeg`);//Huy lenh
         let data = await Channel.deleteTime(id);
         return res.status(200).json({
             success: true,
