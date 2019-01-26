@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="637671b8-4395-4f74-be53-8f5623786638" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Routers/routerMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routers/routerMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/global/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,7 +51,7 @@
         <counts>
           <entry key="Procfile" value="17" />
           <entry key="babelrc" value="4" />
-          <entry key="js" value="11602" />
+          <entry key="js" value="11612" />
           <entry key="json" value="682" />
         </counts>
       </usages-collector>
@@ -58,7 +59,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="686" />
-          <entry key="JavaScript" value="11602" />
+          <entry key="JavaScript" value="11612" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -78,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="408" column="61" selection-start-line="408" selection-start-column="61" selection-end-line="408" selection-end-column="61" />
+            <state relative-caret-position="217">
+              <caret line="409" column="13" lean-forward="true" selection-start-line="409" selection-start-column="13" selection-end-line="409" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -87,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/global/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="49" column="27" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="27" />
+            <state relative-caret-position="137">
+              <caret line="25" column="12" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -161,9 +162,9 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/ConnectDatabase/Firebase.js" />
         <option value="$PROJECT_DIR$/Models/Category.js" />
-        <option value="$PROJECT_DIR$/global/index.js" />
         <option value="$PROJECT_DIR$/Models/Channel.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/global/index.js" />
         <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
       </list>
     </option>
@@ -309,12 +310,12 @@
       <workItem from="1547879743620" duration="19368000" />
       <workItem from="1548164504328" duration="5073000" />
       <workItem from="1548251737248" duration="9273000" />
-      <workItem from="1548497013106" duration="9154000" />
+      <workItem from="1548497013106" duration="9605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152002000" />
+    <option name="totallyTimeSpent" value="152453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
@@ -497,13 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="49" column="27" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/Channel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -518,10 +512,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/global/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="408" column="61" selection-start-line="408" selection-start-column="61" selection-end-line="408" selection-end-column="61" />
+        <state relative-caret-position="217">
+          <caret line="409" column="13" lean-forward="true" selection-start-line="409" selection-start-column="13" selection-end-line="409" selection-end-column="13" />
         </state>
       </provider>
     </entry>
