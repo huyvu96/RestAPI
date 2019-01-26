@@ -28,13 +28,12 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
     if (movies.length > 1) {//Ton tai
         let currentTime = await global.convertTimeToSecond(global.getDateTime());
         let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);
-        console.log(currentTime, timeOfMoviewStreaming);
+        console.log('Than one item',currentTime, timeOfMoviewStreaming);
         if (currentTime > timeOfMoviewStreaming) {//Xet thoi gian hien tai > time phan tu thu [0] hay khong
             let episodes = await Episodes.getAllEpisodesbyIdMovie(movies[1].id_movie);
             let url_link = await episodes[0].url_link;//Lay URL phim ke tiep
-            //await cmd.get(`killall ffmpeg`);//Huy lenh
+            cmd.get(`killall ffmpeg`);//Huy lenh
             let timeOutStream = setTimeout(() =>{
-                console.log('start streaming');
                 timeOutStream = null;
                 clearTimeout(timeOutStream);
                 global.startStreamming(url_link);//Streaming phim tiep theo
@@ -43,18 +42,22 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
             Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
         }
     }
-    // else if (movies.length === 1) {
-    //     let currentTime = await global.convertTimeToSecond(global.getDateTime());
-    //     let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);
-    //     if (currentTime > timeOfMoviewStreaming) {//Xet thoi gian hien tai > time phan tu thu [0] hay khong
-    //         let episodes = await Episodes.getAllEpisodesbyIdMovie(movies[0].id_movie);
-    //         let url_link = await episodes[0].url_link;//Lay URL phim ke tiep
-    //         cmd.get(`killall ffmpeg`);//Huy lenh
-    //         console.log('aaaa');
-    //         global.startStreamming(url_link);//Streaming phim tiep theo
-    //         Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
-    //     }
-    // }
+    else if (movies.length === 1) {
+        let currentTime = await global.convertTimeToSecond(global.getDateTime());
+        let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);
+        console.log('Has one item',currentTime, timeOfMoviewStreaming);
+        if (currentTime > timeOfMoviewStreaming) {//Xet thoi gian hien tai > time phan tu thu [0] hay khong
+            let episodes = await Episodes.getAllEpisodesbyIdMovie(movies[0].id_movie);
+            let url_link = await episodes[0].url_link;//Lay URL phim ke tiep
+            cmd.get(`killall ffmpeg`);//Huy lenh
+            let timeOutStream = setTimeout(() =>{
+                timeOutStream = null;
+                clearTimeout(timeOutStream);
+                global.startStreamming(url_link);//Streaming phim tiep theo
+            },10000);
+            Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
+        }
+    }
 });
 jobBackground.start();
 module.exports = app;
