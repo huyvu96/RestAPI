@@ -32,7 +32,7 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
         if (currentTime > timeOfMoviewStreaming) {//Xet thoi gian hien tai > time phan tu thu [0] hay khong
             let episodes = await Episodes.getAllEpisodesbyIdMovie(movies[1].id_movie);
             let url_link = await episodes[0].url_link;//Lay URL phim ke tiep
-            await cmd.get(`killall ffmpeg`);//Huy lenh
+            //await cmd.get(`killall ffmpeg`);//Huy lenh
             console.log('start streaming');
             global.startStreamming(url_link);//Streaming phim tiep theo
             console.log('delete movie:', movies[0].id_movie);

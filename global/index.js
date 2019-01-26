@@ -47,7 +47,7 @@ const global = {
     },
     startStreamming: function (path) {
         return new Promise(function (resolve, reject) {
-            cmd.get(`ffmpeg -re -i "` + path + `" -acodec libmp3lame -ac 2 -ar 44100 -s 640x360 -vcodec libx264 -pix_fmt yuv420p -g 60 -async 1 -vsync 1 -vb 325k -profile:v baseline -preset:v faster -f flv "rtmp://127.0.0.1:1935/live/streaming"`, (err, results) => {
+            cmd.get(`ffmpeg -re -i "` + path + `" -acodec libmp3lame -ac 2 -ar 44100 -s 640x360 -vcodec libx264 -pix_fmt yuv420p -g 60 -async 1 -vsync 1 -vb 325k -profile:v baseline -preset:v medium -f flv "rtmp://127.0.0.1:1935/live/streaming"`, (err, results) => {
                 if (err) {
                     reject(err)
                 } else {
