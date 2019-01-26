@@ -50,7 +50,7 @@
         <counts>
           <entry key="Procfile" value="17" />
           <entry key="babelrc" value="4" />
-          <entry key="js" value="11565" />
+          <entry key="js" value="11569" />
           <entry key="json" value="682" />
         </counts>
       </usages-collector>
@@ -58,7 +58,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="686" />
-          <entry key="JavaScript" value="11565" />
+          <entry key="JavaScript" value="11569" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -66,20 +66,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="305">
               <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="408" column="19" selection-start-line="408" selection-start-column="19" selection-end-line="408" selection-end-column="19" />
+            <state relative-caret-position="191">
+              <caret line="401" column="9" lean-forward="true" selection-start-line="401" selection-start-column="9" selection-end-line="401" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -163,8 +163,8 @@
         <option value="$PROJECT_DIR$/Models/Category.js" />
         <option value="$PROJECT_DIR$/global/index.js" />
         <option value="$PROJECT_DIR$/Models/Channel.js" />
-        <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
       </list>
     </option>
   </component>
@@ -309,12 +309,12 @@
       <workItem from="1547879743620" duration="19368000" />
       <workItem from="1548164504328" duration="5073000" />
       <workItem from="1548251737248" duration="9273000" />
-      <workItem from="1548497013106" duration="8069000" />
+      <workItem from="1548497013106" duration="8149000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150917000" />
+    <option name="totallyTimeSpent" value="150997000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
@@ -511,17 +511,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
+    <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="408" column="19" selection-start-line="408" selection-start-column="19" selection-end-line="408" selection-end-column="19" />
+        <state relative-caret-position="305">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="191">
+          <caret line="401" column="9" lean-forward="true" selection-start-line="401" selection-start-column="9" selection-end-line="401" selection-end-column="9" />
         </state>
       </provider>
     </entry>
