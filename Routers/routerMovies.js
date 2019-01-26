@@ -402,8 +402,10 @@ router.post('/start-stream?', async function (req, res, next) {
             let duration = await global.getDuration(item.url_link);
             let time_of_date = await Channel.checkExist();
             if(time_of_date.length > 0) {
+                console.log('1',global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time) + duration));
                 Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time) + duration), item.id);
             }else {
+                console.log('2',global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration));
                 Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
             }
         }
