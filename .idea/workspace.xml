@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="637671b8-4395-4f74-be53-8f5623786638" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routers/routerMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routers/routerMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/global/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -86,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/global/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="49" column="231" selection-start-line="49" selection-start-column="195" selection-end-line="49" selection-end-column="231" />
+            <state relative-caret-position="310">
+              <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -131,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="385" column="30" selection-start-line="385" selection-start-column="30" selection-end-line="385" selection-end-column="30" />
+            <state relative-caret-position="301">
+              <caret line="406" column="26" selection-start-line="406" selection-start-column="26" selection-end-line="406" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -207,9 +205,9 @@
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/ConnectDatabase/Firebase.js" />
         <option value="$PROJECT_DIR$/Models/Channel.js" />
-        <option value="$PROJECT_DIR$/global/index.js" />
         <option value="$PROJECT_DIR$/Models/Category.js" />
         <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
+        <option value="$PROJECT_DIR$/global/index.js" />
       </list>
     </option>
   </component>
@@ -354,12 +352,12 @@
       <workItem from="1547879743620" duration="19368000" />
       <workItem from="1548164504328" duration="5073000" />
       <workItem from="1548251737248" duration="9273000" />
-      <workItem from="1548497013106" duration="1875000" />
+      <workItem from="1548497013106" duration="2714000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144723000" />
+    <option name="totallyTimeSpent" value="145562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
@@ -521,13 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="231" selection-start-line="49" selection-start-column="195" selection-end-line="49" selection-end-column="231" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ConnectDatabase/Dbconnection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -565,8 +556,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="385" column="30" selection-start-line="385" selection-start-column="30" selection-end-line="385" selection-end-column="30" />
+        <state relative-caret-position="301">
+          <caret line="406" column="26" selection-start-line="406" selection-start-column="26" selection-end-line="406" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
         </state>
       </provider>
     </entry>
