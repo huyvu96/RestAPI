@@ -23,7 +23,7 @@ app.use('/images/movies', express.static('images'));
 let server = app.listen(process.env.PORT || 8080, function () {
     console.log('Server listening on port ' + server.address().port);
 });
-const jobBackground = new cron.CronJob('0 */30 * * * * *', async function () { // 1 phút 1 lần
+const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { // 1 phút 1 lần
     let movies = await Channel.checkExist();
     if (movies.length > 1) {//Ton tai
         let currentTime = await global.convertTimeToSecond(global.getDateTime());
