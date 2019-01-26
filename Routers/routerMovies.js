@@ -404,14 +404,12 @@ router.post('/start-stream?', async function (req, res, next) {
             let duration = await global.getDuration(item.url_link);
             let time_of_date = await Channel.checkExist();
             if(time_of_date.length > 0) {
-                Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) +
-                    duration +
-                    global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time)), item.id);
+                Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time)) + duration, item.id);
             }else {
                 Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
             }
         }
-        global.startStreamming(movies[0].url_link);
+        //global.startStreamming(movies[0].url_link);
         var db = firebase.database();
         var ref = db.ref("Streaming");
         ref.child("Channel").set({
