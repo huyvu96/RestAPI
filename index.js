@@ -25,24 +25,26 @@ let server = app.listen(process.env.PORT || 8080, function () {
 });
 const jobBackground = new cron.CronJob('0 */1 * * * *', async function () { // 1 phút 1 lần
     let movies = await Channel.checkExist();
+    console.log('Sau 1 phut la chay ne m', movies);
     if(movies.length > 1){//Ton tai
         let currentTime = await global.convertTimeToSecond(global.getDateTime());
         let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);
+        console.log(currentTime,timeOfMoviewStreaming);
         if(currentTime > timeOfMoviewStreaming){//Xet thoi gian hien tai > time phan tu thu [0] hay khong
-            let url_link = await Episodes.getAllEpisodesbyIdMovie(movies[1].id_movie)[0].url_link;//Lay URL phim ke tiep
-            cmd.get(`killall ffmpeg`);//Huy lenh
-            global.startStreamming(url_link);//Streaming phim tiep theo
+            //let url_link = await Episodes.getAllEpisodesbyIdMovie(movies[1].id_movie)[0].url_link;//Lay URL phim ke tiep
+            //cmd.get(`killall ffmpeg`);//Huy lenh
+           // global.startStreamming(url_link);//Streaming phim tiep theo
             Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
         }
     }else if(movies.length === 1) {
-        let currentTime = await global.convertTimeToSecond(global.getDateTime());
-        let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);
-        if(currentTime > timeOfMoviewStreaming){//Xet thoi gian hien tai > time phan tu thu [0] hay khong
-            let url_link = await Episodes.getAllEpisodesbyIdMovie(movies[0].id_movie)[0].url_link;//Lay URL phim ke tiep
-            cmd.get(`killall ffmpeg`);//Huy lenh
-            global.startStreamming(url_link);//Streaming phim tiep theo
-            Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
-        }
+        // let currentTime = await global.convertTimeToSecond(global.getDateTime());
+        // let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);
+        // if(currentTime > timeOfMoviewStreaming){//Xet thoi gian hien tai > time phan tu thu [0] hay khong
+        //     let url_link = await Episodes.getAllEpisodesbyIdMovie(movies[0].id_movie)[0].url_link;//Lay URL phim ke tiep
+        //     cmd.get(`killall ffmpeg`);//Huy lenh
+        //     global.startStreamming(url_link);//Streaming phim tiep theo
+        //     Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
+        // }
     }
 });
 jobBackground.start();
