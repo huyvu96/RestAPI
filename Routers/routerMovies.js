@@ -402,12 +402,11 @@ router.post('/start-stream?', async function (req, res, next) {
     try {
         for (const item of movies){
             let duration = await global.getDuration(item.url_link);
-            let time_of_date = await Channel.checkExist();
-            if(time_of_date.length > 0) {
-                Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time)) + duration, item.id);
-            }else {
+            // if(time_of_date.length > 0) {
+            //     Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time)) + duration, item.id);
+            // }else {
                 Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
-            }
+            //}
         }
         //global.startStreamming(movies[0].url_link);
         // var db = firebase.database();
@@ -415,8 +414,10 @@ router.post('/start-stream?', async function (req, res, next) {
         // ref.child("Channel").set({
         //     turn: 1
         // });
+        let time_of_date = await Channel.checkExist();
         return res.status(200).json({
             success: true,
+            time_of_date,
             message: "STREAMING_SUCCESSFUL",
         });
     } catch (e) {
