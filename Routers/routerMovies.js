@@ -413,7 +413,7 @@ router.post('/start-stream?', async function (req, res, next) {
         var db = firebase.database();
         var ref = db.ref("Streaming");
         ref.child("Channel").set({
-            turn: 1
+            turn: movies[0].id
         });
         return res.status(200).json({
             success: true,

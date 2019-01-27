@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="637671b8-4395-4f74-be53-8f5623786638" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routers/routerMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routers/routerMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,7 +51,7 @@
         <counts>
           <entry key="Procfile" value="17" />
           <entry key="babelrc" value="4" />
-          <entry key="js" value="12173" />
+          <entry key="js" value="12189" />
           <entry key="json" value="682" />
         </counts>
       </usages-collector>
@@ -58,7 +59,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="686" />
-          <entry key="JavaScript" value="12173" />
+          <entry key="JavaScript" value="12189" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -66,11 +67,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="37" column="42" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="42" />
+            <state relative-caret-position="352">
+              <caret line="43" column="25" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -78,35 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1189">
-              <caret line="454" column="43" selection-start-line="454" selection-start-column="33" selection-end-line="454" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Models/User.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="152" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="152" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-100">
-              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Channel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+            <state relative-caret-position="224">
+              <caret line="415" column="30" selection-start-line="415" selection-start-column="30" selection-end-line="415" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -170,10 +144,10 @@
         <option value="$PROJECT_DIR$/ConnectDatabase/Firebase.js" />
         <option value="$PROJECT_DIR$/Models/Category.js" />
         <option value="$PROJECT_DIR$/Models/Channel.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/global/index.js" />
-        <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
         <option value="$PROJECT_DIR$/Models/User.js" />
+        <option value="$PROJECT_DIR$/Routers/routerMovies.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -318,18 +292,18 @@
       <workItem from="1547879743620" duration="19368000" />
       <workItem from="1548164504328" duration="5073000" />
       <workItem from="1548251737248" duration="9273000" />
-      <workItem from="1548497013106" duration="16126000" />
+      <workItem from="1548497013106" duration="17150000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158974000" />
+    <option name="totallyTimeSpent" value="159998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1726568" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1726568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -499,13 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="37" column="42" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/Channel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -520,17 +487,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
+    <entry file="file://$PROJECT_DIR$/Models/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1189">
-          <caret line="454" column="43" selection-start-line="454" selection-start-column="33" selection-end-line="454" selection-end-column="43" />
+        <state relative-caret-position="311">
+          <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/User.js">
+    <entry file="file://$PROJECT_DIR$/Routers/routerMovies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="152" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="152" />
+        <state relative-caret-position="224">
+          <caret line="415" column="30" selection-start-line="415" selection-start-column="30" selection-end-line="415" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="25" />
         </state>
       </provider>
     </entry>

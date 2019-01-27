@@ -12,6 +12,7 @@ const Channel = require('./Models/Channel');
 const Episodes = require('./Models/Episodes');
 const global = require('./global');
 const cmd = require("node-cmd");
+const firebase = require('./ConnectDatabase/Firebase');
 
 
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -40,7 +41,12 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
                 global.startStreamming(url_link);//Streaming phim tiep theo
             },5000);
             console.log('delete movie:', movies[0].id_movie);
-            Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
+            await Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
+            var db = firebase.database();
+            var ref = db.ref("Streaming");
+            ref.child("Channel").set({
+                turn: movies[0].id_movie
+            });
         }
     }
     else if (movies.length === 1) {
