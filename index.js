@@ -42,6 +42,7 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
             },5000);
             console.log('delete movie:', movies[0].id_movie);
             await Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
+            await Channel.deleteDuration(movies[0].id_movie);//Delete phim truoc do
             var db = firebase.database();
             var ref = db.ref("Streaming");
             ref.child("Channel").set({
@@ -51,7 +52,8 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
     }
     else if (movies.length === 1) {
         console.log('delete movie:', movies[0].id_movie);
-        Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
+        await Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
+        await Channel.deleteDuration(movies[0].id_movie);//Delete phim truoc do
         // let currentTime = await global.convertTimeToSecond(global.getDateTime());
         // let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);
         // console.log('Has one item', currentTime, timeOfMoviewStreaming);

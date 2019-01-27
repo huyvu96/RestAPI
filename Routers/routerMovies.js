@@ -404,9 +404,13 @@ router.post('/start-stream?', async function (req, res, next) {
             if(time_of_date.length > 0) {
                 console.log('1',global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time) + duration));
                 Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time) + duration), item.id);
+                Channel.insertDuration(item.id, duration)
+                //inset duration and item.id la key.
             }else {
                 console.log('2',global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration),global.convertTimeToSecond(global.getDateTime()),global.getDateTime(),duration);
                 Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
+                Channel.insertDuration(item.id, duration)
+                //inset duration and item.id la key.
             }
         }
         global.startStreamming(movies[0].url_link);

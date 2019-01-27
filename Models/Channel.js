@@ -73,5 +73,29 @@ var Channel = {
             })
         });
     },
+    insertDuration: async function (idMovie,time) {
+        var insertData = "insert into streaming values (?, ?)";
+        return new Promise(function (resolve, reject) {
+            db.query(insertData.split("undefined").join("null"), [idMovie, time], function (err, result) {
+                if (err) {
+                    return reject({success: false, data: [], message: err})
+                } else {
+                    return resolve({success: true, data: result, message: "INSERT_SUCCESSFUL"})
+                }
+            })
+        });
+    },
+    deleteDuration: async function (idMovie) {
+        var deleteData = "delete from streaming where id = ?";
+        return new Promise(function (resolve, reject) {
+            db.query(deleteData.split("undefined").join("null"), [idMovie], function (err, result) {
+                if (err) {
+                    return reject({success: false, data: [], message: err})
+                } else {
+                    return resolve({success: true, data: result, message: "DELETE_SUCCESSFUL"})
+                }
+            })
+        });
+    },
 };
 module.exports = Channel;
