@@ -25,10 +25,10 @@ var Channel = {
             })
         });
     },
-    insertTime: async function (time,idMovie) {
-        var insertData = "insert into time_of_date values (null, ? ,1, ?)";
+    insertTime: async function (time,idMovie,duration) {
+        var insertData = "insert into time_of_date values (null, ? ,1, ?,?)";
         return new Promise(function (resolve, reject) {
-            db.query(insertData.split("undefined").join("null"), [time, idMovie], function (err, result) {
+            db.query(insertData.split("undefined").join("null"), [time, idMovie,duration], function (err, result) {
                 if (err) {
                     return reject(err)
                 } else {
