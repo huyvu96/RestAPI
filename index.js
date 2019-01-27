@@ -45,7 +45,7 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
             var db = firebase.database();
             var ref = db.ref("Streaming");
             ref.child("Channel").set({
-                turn: movies[0].id_movie
+                turn: movies[1].id_movie
             });
         }
     }
