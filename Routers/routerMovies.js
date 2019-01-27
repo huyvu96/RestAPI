@@ -413,12 +413,12 @@ router.post('/start-stream?', async function (req, res, next) {
                 //inset duration and item.id la key.
             }
         }
-        global.startStreamming(movies[0].url_link);
-        var db = firebase.database();
-        var ref = db.ref("Streaming");
-        ref.child("Channel").set({
-            turn: movies[0].id
-        });
+        // global.startStreamming(movies[0].url_link);
+        // var db = firebase.database();
+        // var ref = db.ref("Streaming");
+        // ref.child("Channel").set({
+        //     turn: movies[0].id
+        // });
         return res.status(200).json({
             success: true,
             message: "STREAMING_SUCCESSFUL",

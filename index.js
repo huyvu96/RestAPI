@@ -33,21 +33,21 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
         if (currentTime > timeOfMoviewStreaming) {//Xet thoi gian hien tai > time phan tu thu [0] hay khong
             let episodes = await Episodes.getAllEpisodesbyIdMovie(movies[1].id_movie);
             let url_link = await episodes[0].url_link;//Lay URL phim ke tiep
-            cmd.get(`killall ffmpeg`);//Huy lenh
-            let timeOutStream = setTimeout(() =>{
-                timeOutStream = null;
-                clearTimeout(timeOutStream);
-                console.log('start streaming');
-                global.startStreamming(url_link);//Streaming phim tiep theo
-            },5000);
+            // cmd.get(`killall ffmpeg`);//Huy lenh
+            // let timeOutStream = setTimeout(() =>{
+            //     timeOutStream = null;
+            //     clearTimeout(timeOutStream);
+            //     console.log('start streaming');
+            //     global.startStreamming(url_link);//Streaming phim tiep theo
+            // },5000);
             console.log('delete movie:', movies[0].id_movie);
             await Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
             await Channel.deleteDuration(movies[0].id_movie);//Delete phim truoc do
-            var db = firebase.database();
-            var ref = db.ref("Streaming");
-            ref.child("Channel").set({
-                turn: movies[1].id_movie
-            });
+            // var db = firebase.database();
+            // var ref = db.ref("Streaming");
+            // ref.child("Channel").set({
+            //     turn: movies[1].id_movie
+            // });
         }
     }
     else if (movies.length === 1) {
