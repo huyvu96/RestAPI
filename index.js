@@ -39,7 +39,7 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
                 clearTimeout(timeOutStream);
                 console.log('start streaming');
                 global.startStreamming(url_link);//Streaming phim tiep theo
-            },5000);
+            },3000);
             console.log('delete movie:', movies[0].id_movie);
             await Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
             var db = firebase.database();
