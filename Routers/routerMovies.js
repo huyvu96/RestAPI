@@ -358,7 +358,6 @@ router.get('/like', global.verifyToken, async function (req, res, next) {
             }
         }
     });
-
 });
 router.get('/watchlist', global.verifyToken, async function (req, res, next) {
     let data = [];
@@ -413,12 +412,12 @@ router.post('/start-stream?', async function (req, res, next) {
                 //inset duration and item.id la key.
             }
         }
-        // global.startStreamming(movies[0].url_link);
-        // var db = firebase.database();
-        // var ref = db.ref("Streaming");
-        // ref.child("Channel").set({
-        //     turn: movies[0].id
-        // });
+        global.startStreamming(movies[0].url_link);
+        var db = firebase.database();
+        var ref = db.ref("Streaming");
+        ref.child("Channel").set({
+            turn: movies[0].id
+        });
         return res.status(200).json({
             success: true,
             message: "STREAMING_SUCCESSFUL",
@@ -469,6 +468,30 @@ router.post('/remove-stream?', async function (req, res, next) {
             message: e,
         });
     }
+});
+router.get('/getDuration', global.verifyToken, async function (req, res, next) {
+    let data = [];
+    let  {id} = req.query;
+    jwt.verify(req.token, 'tvsea', async (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            try {
+                data = await Channel.getDuration(id);
+                return res.status(200).json({
+                    success: true,
+                    data,
+                    message: "GET_DATA_SUCCESSFUL",
+                });
+            } catch (e) {
+                return res.status(404).json({
+                    success: false,
+                    data: [],
+                    message: e.sqlMessage,
+                });
+            }
+        }
+    });
 });
 router.post('/insertHistoryOrLike?', global.verifyToken, async function (req, res, next) {
     const {idMovie, Key, idUser} = req.body;

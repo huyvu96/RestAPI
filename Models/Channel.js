@@ -97,5 +97,17 @@ var Channel = {
             })
         });
     },
+    getDuration: async function (idMovie) {
+        var deleteData = "select * from streaming where id = ?";
+        return new Promise(function (resolve, reject) {
+            db.query(deleteData.split("undefined").join("null"), [idMovie], function (err, result) {
+                if (err) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        });
+    },
 };
 module.exports = Channel;
