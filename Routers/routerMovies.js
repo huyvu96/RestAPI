@@ -405,16 +405,16 @@ router.post('/start-stream?', async function (req, res, next) {
                 console.log('1',global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time) + duration));
                 Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(time_of_date[time_of_date.length - 1].time) + duration), item.id);
             }else {
-                console.log('2',global.toHHMMSS(global.convertTimeToSecond(global.getDateTime())), global.convertTimeToSecond(global.getDateTime()),global.getDateTime(),duration);
-                Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime())), item.id);
+                console.log('2',global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration),global.convertTimeToSecond(global.getDateTime()),global.getDateTime(),duration);
+                Channel.insertTime(global.toHHMMSS(global.convertTimeToSecond(global.getDateTime()) + duration), item.id);
             }
         }
-        // global.startStreamming(movies[0].url_link);
-        // var db = firebase.database();
-        // var ref = db.ref("Streaming");
-        // ref.child("Channel").set({
-        //     turn: movies[0].id
-        // });
+        global.startStreamming(movies[0].url_link);
+        var db = firebase.database();
+        var ref = db.ref("Streaming");
+        ref.child("Channel").set({
+            turn: movies[0].id
+        });
         return res.status(200).json({
             success: true,
             message: "STREAMING_SUCCESSFUL",

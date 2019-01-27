@@ -28,7 +28,7 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
     let movies = await Channel.checkExist();
     if (movies.length > 1) {//Ton tai
         let currentTime = await global.convertTimeToSecond(global.getDateTime());
-        let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[1].time);
+        let timeOfMoviewStreaming = await global.convertTimeToSecond(movies[0].time);
         console.log('Than one item',currentTime, timeOfMoviewStreaming);
         if (currentTime > timeOfMoviewStreaming) {//Xet thoi gian hien tai > time phan tu thu [0] hay khong
             let episodes = await Episodes.getAllEpisodesbyIdMovie(movies[1].id_movie);
@@ -37,16 +37,16 @@ const jobBackground = new cron.CronJob('0 */10 * * * * *', async function () { /
             let timeOutStream = setTimeout(() =>{
                 timeOutStream = null;
                 clearTimeout(timeOutStream);
-                console.log('start streaming',url_link);
-               // global.startStreamming(url_link);//Streaming phim tiep theo
+                console.log('start streaming');
+                global.startStreamming(url_link);//Streaming phim tiep theo
             },5000);
             console.log('delete movie:', movies[0].id_movie);
             await Channel.deleteMovie(movies[0].id_movie);//Delete phim truoc do
-            // var db = firebase.database();
-            // var ref = db.ref("Streaming");
-            // ref.child("Channel").set({
-            //     turn: movies[1].id_movie
-            // });
+            var db = firebase.database();
+            var ref = db.ref("Streaming");
+            ref.child("Channel").set({
+                turn: movies[1].id_movie
+            });
         }
     }
     else if (movies.length === 1) {
