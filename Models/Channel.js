@@ -98,7 +98,7 @@ var Channel = {
         });
     },
     getDuration: async function (idMovie) {
-        var deleteData = "select * from streaming where id = ?";
+        var deleteData = "select * from streaming";
         return new Promise(function (resolve, reject) {
             db.query(deleteData.split("undefined").join("null"), [idMovie], function (err, result) {
                 if (err) {

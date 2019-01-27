@@ -471,13 +471,13 @@ router.post('/remove-stream?', async function (req, res, next) {
 });
 router.get('/getDuration', global.verifyToken, async function (req, res, next) {
     let data = [];
-    let  {id} = req.query;
+    //let  {id} = req.query;
     jwt.verify(req.token, 'tvsea', async (err, authData) => {
         if (err) {
             res.sendStatus(403);
         } else {
             try {
-                data = await Channel.getDuration(id);
+                data = await Channel.getDuration();
                 return res.status(200).json({
                     success: true,
                     data,
